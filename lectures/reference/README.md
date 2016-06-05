@@ -4,9 +4,24 @@
 
 1. Create empty solution named `EfWithMySql`. This is abberivation from Entity Framework with MySLQ.
 *Keep an eye on case*
-######Hint:
+###Hint:
 *New Project window -> Installed -> Templates -> Other Project Types -> Visual Studio Solutions -> BlankSolution*
 
 2. Add console application named `EfFirstContact` to this solution.
+2.1 Compile and run it. It should write `monkey` message to the console.
 
-3. Compile and run it. It should write `monkey` message to the console.
+3. Create database initialization script for Todo application.
+3.1 Inside project create `SqlScripts` folder. 
+3.2 Create `01_Init.sql` SQL script in this folder. 
+3.3 Create `Todo` database with one table for todo items. 
+
+*SD: some random data
+
+TodoItem
+
+| Id | Description | TimeCreated | TimeSetToDone |
+|----|-------------|-------------|---------------|
+| SD | Buy milk    | (some data) | NULL          |
+| SD | Call Miki   | (some data) | NULL          |
+| SD | Do homework | (some data) | (some data)   |
+
