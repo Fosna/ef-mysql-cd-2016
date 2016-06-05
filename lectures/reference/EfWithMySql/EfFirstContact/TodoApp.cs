@@ -46,13 +46,22 @@ namespace EfFirstContact
             this.db.todoitem.Add(todoInsert);
             this.db.SaveChanges();
 
-            Console.WriteLine("New TODO item saved.");
+            Console.WriteLine("New todo item saved.");
         }
 
         public void SetDone()
         {
-            Console.WriteLine();
+            Console.Write("Enter todo id. > ");
+            var rawId = Console.ReadLine();
+            int doneId;
+            if (int.TryParse(rawId, out doneId))
+            {
 
+            }
+            else
+            {
+                Console.WriteLine("Entered value is not a number. Consider entering todo item id number.");
+            }
         }
     }
 }
