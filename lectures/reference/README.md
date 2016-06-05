@@ -68,5 +68,6 @@ Console.WriteLine(todoItemsExist);
 ```
 Output should be `True`.
 
-
+#### 7. Write all tasks to console when application starts.
+Extract logic to `TodoApp` class.
 

@@ -10,9 +10,8 @@ namespace EfFirstContact
     {
         static void Main(string[] args)
         {
-            var db = new TodoEntities();
-            var todoItemsExist = db.todoitem.Any();
-            Console.WriteLine(todoItemsExist);
+            var app = new TodoApp();
+            app.List();
         }
     }
 }
