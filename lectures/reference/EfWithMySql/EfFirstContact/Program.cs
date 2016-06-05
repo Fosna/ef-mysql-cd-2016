@@ -11,7 +11,9 @@ namespace EfFirstContact
         static void Main(string[] args)
         {
             var app = new TodoApp();
-            app.List();
+
+            var commandLoop = new CommandLoop(app);
+            commandLoop.Run();
         }
     }
 }
