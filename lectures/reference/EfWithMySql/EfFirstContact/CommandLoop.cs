@@ -28,12 +28,22 @@ namespace EfFirstContact
                 {
                     Console.WriteLine("Command not supported.");
                     ShowHelp();
-                    continue;
                 }
-
-                if (command == TodoCommands.EXIT)
+                else if (command == TodoCommands.HELP)
+                {
+                    ShowHelp();
+                }
+                else if (command == TodoCommands.EXIT)
                 {
                     isExit = true;
+                }
+                else if (command == TodoCommands.LIST)
+                {
+                    this.app.List();
+                }
+                else if (command == TodoCommands.ADD)
+                {
+                    this.app.AddTodoItem();
                 }
 
             } while (isExit == false);
@@ -41,7 +51,10 @@ namespace EfFirstContact
 
         private void ShowHelp()
         {
-            Console.WriteLine("TODO: help :)");
+            Console.WriteLine("list - Write todo items.");
+            Console.WriteLine("help - Show this message.");
+            Console.WriteLine("exit - exit program.");
+            Console.WriteLine();
         }
     }
 }

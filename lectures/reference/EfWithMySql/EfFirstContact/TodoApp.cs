@@ -33,5 +33,20 @@ namespace EfFirstContact
                 Console.WriteLine();
             }
         }
+
+        internal void AddTodoItem()
+        {
+            var todoInsert = new todoitem();
+
+            Console.Write("Description: > ");
+            todoInsert.Description = Console.ReadLine().Trim();
+
+            todoInsert.TimeCreated = DateTime.Now;
+
+            this.db.todoitem.Add(todoInsert);
+            this.db.SaveChanges();
+
+            Console.WriteLine("New TODO item saved.");
+        }
     }
 }
