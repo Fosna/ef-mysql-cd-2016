@@ -10,6 +10,7 @@ namespace EfFirstContact
     {
         static void Main(string[] args)
         {
+            Console.WriteLine("monkey");
         }
     }
 }

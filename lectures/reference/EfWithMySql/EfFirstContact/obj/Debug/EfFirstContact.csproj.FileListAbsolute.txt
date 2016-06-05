@@ -1,1 +1,6 @@
 C:\Programming\cdef2016\ef-mysql-cd-2016\lectures\reference\EfWithMySql\EfFirstContact\bin\Debug\EfFirstContact.exe.config
+C:\Programming\cdef2016\ef-mysql-cd-2016\lectures\reference\EfWithMySql\EfFirstContact\bin\Debug\EfFirstContact.exe
+C:\Programming\cdef2016\ef-mysql-cd-2016\lectures\reference\EfWithMySql\EfFirstContact\bin\Debug\EfFirstContact.pdb
+C:\Programming\cdef2016\ef-mysql-cd-2016\lectures\reference\EfWithMySql\EfFirstContact\obj\Debug\EfFirstContact.csprojResolveAssemblyReference.cache
+C:\Programming\cdef2016\ef-mysql-cd-2016\lectures\reference\EfWithMySql\EfFirstContact\obj\Debug\EfFirstContact.exe
+C:\Programming\cdef2016\ef-mysql-cd-2016\lectures\reference\EfWithMySql\EfFirstContact\obj\Debug\EfFirstContact.pdb

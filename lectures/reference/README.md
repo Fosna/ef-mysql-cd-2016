@@ -8,3 +8,5 @@
 *New Project window -> Installed -> Templates -> Other Project Types -> Visual Studio Solutions -> BlankSolution*
 
 2. Add console application named `EfFirstContact` to this solution.
+
+3. Compile and run it. It should write `monkey` message to the console.
