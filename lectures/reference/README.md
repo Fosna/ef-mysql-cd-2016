@@ -6,3 +6,5 @@
 *Keep an eye on case*
 ######Hint:
 *New Project window -> Installed -> Templates -> Other Project Types -> Visual Studio Solutions -> BlankSolution*
+
+2. Add console application named `EfFirstContact` to this solution.
