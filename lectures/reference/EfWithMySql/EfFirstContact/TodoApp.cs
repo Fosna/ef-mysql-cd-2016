@@ -34,7 +34,7 @@ namespace EfFirstContact
             }
         }
 
-        internal void AddTodoItem()
+        public void AddTodoItem()
         {
             var todoInsert = new todoitem();
 
@@ -47,6 +47,12 @@ namespace EfFirstContact
             this.db.SaveChanges();
 
             Console.WriteLine("New TODO item saved.");
+        }
+
+        public void SetDone()
+        {
+            Console.WriteLine();
+
         }
     }
 }

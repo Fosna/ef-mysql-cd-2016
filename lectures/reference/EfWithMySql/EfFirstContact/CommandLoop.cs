@@ -45,15 +45,21 @@ namespace EfFirstContact
                 {
                     this.app.AddTodoItem();
                 }
+                else if (command == TodoCommands.SET_DONE)
+                {
+                    this.app.SetDone();
+                }
 
             } while (isExit == false);
         }
 
         private void ShowHelp()
         {
-            Console.WriteLine("list - Write todo items.");
-            Console.WriteLine("help - Show this message.");
-            Console.WriteLine("exit - exit program.");
+            Console.WriteLine($"{TodoCommands.LIST} - Write todo items.");
+            Console.WriteLine($"{TodoCommands.ADD} - Add new todo item.");
+            Console.WriteLine($"{TodoCommands.SET_DONE} - Mark todo item as done.");
+            Console.WriteLine($"{TodoCommands.HELP} - Show this message.");
+            Console.WriteLine($"{TodoCommands.EXIT} - Exit program.");
             Console.WriteLine();
         }
     }
