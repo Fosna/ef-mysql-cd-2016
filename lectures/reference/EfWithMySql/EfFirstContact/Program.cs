@@ -10,7 +10,9 @@ namespace EfFirstContact
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("monkey");
+            var db = new TodoEntities();
+            var todoItemsExist = db.todoitem.Any();
+            Console.WriteLine(todoItemsExist);
         }
     }
 }

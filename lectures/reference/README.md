@@ -50,4 +50,4 @@ Packages folder has been created in solution folder. It's not visible in Solutio
 5.8 Select all tables. There is only one table. *Pluralize or singularize... bla bla* shouldn't be checked. *Include foreign key... bla bla* should be checked.
 5.9 Save and close `TodoModel.edmx` file. Build solution. Check out `ConnectionStirngs` section in `App.config`.
 
-
+6. Connect to database. See if some todo items exist.
