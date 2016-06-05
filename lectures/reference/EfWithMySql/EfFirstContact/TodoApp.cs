@@ -56,7 +56,17 @@ namespace EfFirstContact
             int doneId;
             if (int.TryParse(rawId, out doneId))
             {
-
+                var doneTodo = db.todoitem.SingleOrDefault(x => x.Id == doneId);
+                if (doneTodo == null)
+                {
+                    Console.WriteLine($"Todo with id {doneId} not found.");
+                }
+                else
+                {
+                    doneTodo.TimeSetToDone = DateTime.Now;
+                    db.SaveChanges();
+                    Console.WriteLine($"Todo item with id {doneId} set as done.");
+                }
             }
             else
             {
