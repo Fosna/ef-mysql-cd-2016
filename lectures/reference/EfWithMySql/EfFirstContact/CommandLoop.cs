@@ -18,6 +18,30 @@ namespace EfFirstContact
         internal void Run()
         {
             this.app.List();
+            var isExit = false;
+            do
+            {
+                Console.Write("> ");
+                var commandText = Console.ReadLine();
+                var command = TodoCommands.ParseCommand(commandText);
+                if (command == TodoCommands.INVALID)
+                {
+                    Console.WriteLine("Command not supported.");
+                    ShowHelp();
+                    continue;
+                }
+
+                if (command == TodoCommands.EXIT)
+                {
+                    isExit = true;
+                }
+
+            } while (isExit == false);
+        }
+
+        private void ShowHelp()
+        {
+            Console.WriteLine("TODO: help :)");
         }
     }
 }
