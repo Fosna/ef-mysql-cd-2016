@@ -25,3 +25,16 @@ TodoItem
 | SD | Call Miki   | (some data) | NULL          |
 | SD | Do homework | (some data) | (some data)   |
 
+4. Install `MySql.Data.Entity` NuGet package.
+Check out `package.config` which has been updated with project dependencies for MySql.
+
+```
+<packages>
+  <package id="EntityFramework" version="6.0.0" targetFramework="net452" />
+  <package id="MySql.Data" version="6.9.8" targetFramework="net452" />
+  <package id="MySql.Data.Entity" version="6.9.8" targetFramework="net452" />
+</packages>
+```
+Project references have been updated. Look, there is EntityFramework reference.
+`App.config` file has been updated with `entityFramework` section
+Packages folder has been created in solution folder. It's not visible in Solution Explorer. Snoop around it.
