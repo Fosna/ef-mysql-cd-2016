@@ -48,30 +48,66 @@ namespace EfFirstContact
 
             Console.WriteLine("New todo item saved.");
         }
-
+        
         public void SetDone()
         {
-            Console.Write("Enter todo id. > ");
-            var rawId = Console.ReadLine();
             int doneId;
-            if (int.TryParse(rawId, out doneId))
+            if (TryReadTodoId(out doneId))
             {
-                var doneTodo = db.todoitem.SingleOrDefault(x => x.Id == doneId);
-                if (doneTodo == null)
-                {
-                    Console.WriteLine($"Todo with id {doneId} not found.");
-                }
-                else
+                todoitem doneTodo;
+                if (TryGetTodoById(doneId, out doneTodo))
                 {
                     doneTodo.TimeSetToDone = DateTime.Now;
                     db.SaveChanges();
                     Console.WriteLine($"Todo item with id {doneId} set as done.");
                 }
             }
+        }
+
+        public void Remove()
+        {
+            int removeId;
+            if (TryReadTodoId(out removeId))
+            {
+                todoitem doneTodo;
+                if (TryGetTodoById(removeId, out doneTodo))
+                {
+                    db.todoitem.Remove(doneTodo);
+                    db.SaveChanges();
+                    Console.WriteLine($"Todo item with id {removeId} has been removed.");
+                }
+            }
+        }
+
+        private bool TryReadTodoId(out int todoId)
+        {
+            Console.Write("Enter todo id. > ");
+            var rawId = Console.ReadLine();
+            if (int.TryParse(rawId, out todoId))
+            {
+                return true;
+            }
             else
             {
                 Console.WriteLine("Entered value is not a number. Consider entering todo item id number.");
+                todoId = default(int);
+                return false;
             }
         }
+
+        private bool TryGetTodoById(int doneId, out todoitem todo)
+        {
+            todo = db.todoitem.SingleOrDefault(x => x.Id == doneId);
+            if (todo != null)
+            {
+                return true;
+            }
+            else
+            {
+                Console.WriteLine($"Todo with id {doneId} not found.");
+                return false;
+            }
+        }
+
     }
 }

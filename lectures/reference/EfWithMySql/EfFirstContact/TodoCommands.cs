@@ -9,20 +9,23 @@ namespace EfFirstContact
     class TodoCommands
     {
         public const string INVALID = "";
-        public const string LIST = "list";
         public const string HELP = "help";
+        public const string EXIT = "exit";
+
+        public const string LIST = "list";
         public const string ADD = "add";
         public const string SET_DONE = "done";
-        public const string EXIT = "exit";
+        public const string REMOVE = "remove";
 
         public static List<string> GetAllCommands()
         {
             var commandList = new List<string>
             {
                 LIST,
-                HELP,
                 ADD,
                 SET_DONE,
+                REMOVE,
+                HELP,
                 EXIT,
             };
             return commandList;
