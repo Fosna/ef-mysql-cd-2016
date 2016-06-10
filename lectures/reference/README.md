@@ -2,13 +2,13 @@
 
 #Steps
 
-#### 1. Create empty solution named `EfWithMySql`. This is abberivation from Entity Framework with MySLQ.
-*Keep an eye on case*
+#### 1. Create empty solution named `EfWithMySql`. This is abberivation from Entity Framework with MySQL.
+*Keep an eye on letter case.*
 ###Hint:
-*New Project window -> Installed -> Templates -> Other Project Types -> Visual Studio Solutions -> BlankSolution*
+*New Project window -> Installed -> Templates -> Other Project Types -> Visual Studio Solutions -> Blank Solution*
 
 #### 2. Add console application named `EfFirstContact` to this solution.
-2.1. Compile and run it. It should write `monkey` message to the console.
+2.1. Compile and run it. Make it write `Hello world!` message to the console.
 
 #### 3. Create database initialization script for Todo application.
 3.1 Inside project create `SqlScripts` folder. 
@@ -58,7 +58,7 @@ Packages folder has been created in solution folder. It's not visible in Solutio
 
 5.8. Select all tables. There is only one table. *Pluralize or singularize... bla bla* shouldn't be checked. *Include foreign key... bla bla* should be checked.
 
-5.9. Save and close `TodoModel.edmx` file. Build solution. Check out `ConnectionStirngs` section in `App.config`.
+5.9. Save and close `TodoModel.edmx` file. Build solution. Check out `ConnectionStrings` section in `App.config`.
 
 #### 6. Connect to database. See if some todo items exist.
 ```
