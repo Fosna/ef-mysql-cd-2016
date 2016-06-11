@@ -16,3 +16,15 @@ Hint:
 3.1 Inside project create `SqlScripts` folder. 
 
 3.2 Create `01_Init.sql` SQL script in this folder. 
+
+3.3 Create `Todo` database with one table for todo items. 
+
+*SD: some random data
+
+TodoItem
+
+| Id | Description | TimeCreated | TimeSetToDone |
+|----|-------------|-------------|---------------|
+| SD | Buy milk    | (some data) | NULL          |
+| SD | Call Miki   | (some data) | NULL          |
+| SD | Do homework | (some data) | (some data)   |
