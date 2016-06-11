@@ -14,6 +14,6 @@ namespace EfCodeFirstTodo
 
         public DateTime TimeCreated { get; set; }
 
-        public DateTime? TimeSetDone { get; set; }
+        public DateTime? TimeSetToDone { get; set; }
     }
 }

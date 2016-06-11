@@ -3,7 +3,7 @@ using System.Linq;
 
 namespace EfCodeFirstTodo
 {
-    internal class TodoApp
+    class TodoApp
     {
         private TodoEntities db;
 
@@ -22,7 +22,7 @@ namespace EfCodeFirstTodo
                 Console.WriteLine($"Description: {todoItem.Description}");
                 Console.WriteLine($"Created: {todoItem.TimeCreated}");
                 var isDone = false;
-                if (todoItem.TimeSetDone.HasValue)
+                if (todoItem.TimeSetToDone.HasValue)
                 {
                     isDone = true;
                 }
@@ -33,17 +33,78 @@ namespace EfCodeFirstTodo
 
         public void AddTodoItem()
         {
-            throw new NotImplementedException();
+            var todoInsert = new TodoItem();
+
+            Console.Write("Description: > ");
+            todoInsert.Description = Console.ReadLine().Trim();
+
+            todoInsert.TimeCreated = DateTime.Now;
+
+            this.db.TodoItems.Add(todoInsert);
+            this.db.SaveChanges();
+
+            Console.WriteLine("New todo item saved.");
         }
 
         public void SetDone()
         {
-            throw new NotImplementedException();
+            int doneId;
+            if (TryReadTodoId(out doneId))
+            {
+                TodoItem doneTodo;
+                if (TryGetTodoById(doneId, out doneTodo))
+                {
+                    doneTodo.TimeSetToDone = DateTime.Now;
+                    db.SaveChanges();
+                    Console.WriteLine($"Todo item with id {doneId} set as done.");
+                }
+            }
         }
 
         public void Remove()
         {
-            throw new NotImplementedException();
+            int removeId;
+            if (TryReadTodoId(out removeId))
+            {
+                TodoItem doneTodo;
+                if (TryGetTodoById(removeId, out doneTodo))
+                {
+                    db.TodoItems.Remove(doneTodo);
+                    db.SaveChanges();
+                    Console.WriteLine($"Todo item with id {removeId} has been removed.");
+                }
+            }
         }
+
+        private bool TryReadTodoId(out int todoId)
+        {
+            Console.Write("Enter todo id. > ");
+            var rawId = Console.ReadLine();
+            if (int.TryParse(rawId, out todoId))
+            {
+                return true;
+            }
+            else
+            {
+                Console.WriteLine("Entered value is not a number. Consider entering todo item id number.");
+                todoId = default(int);
+                return false;
+            }
+        }
+
+        private bool TryGetTodoById(int doneId, out TodoItem todo)
+        {
+            todo = db.TodoItems.SingleOrDefault(x => x.Id == doneId);
+            if (todo != null)
+            {
+                return true;
+            }
+            else
+            {
+                Console.WriteLine($"Todo with id {doneId} not found.");
+                return false;
+            }
+        }
+
     }
 }
