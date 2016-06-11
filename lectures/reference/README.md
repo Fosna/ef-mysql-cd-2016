@@ -125,3 +125,7 @@ public class TodoApp
 
 #### 3 Install `MySql.Data.Entity` NuGet package.
 
+#### 4 Create database for todo app
+4.1 Create `TodoItem` class.
+4.2 Create database context named `TodoEntities`.
+
