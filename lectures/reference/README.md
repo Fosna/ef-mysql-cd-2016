@@ -43,6 +43,9 @@ Project references have been updated. Look, there is EntityFramework reference.
 `App.config` file has been updated with `entityFramework` section.
 Packages folder has been created in solution folder. It's not visible in Solution Explorer. Snoop around it.
 
+##### Potential issue
+If NuGet isn't installed in Visual Studio choose *Tools -> Extensions and Updates -> Online* and search for *NuGet Package Manager for Visual Studio 2015*. Uninstall and install might be required.
+
 #### 5 Create Todo database Entity Framework database first model.
 5.1 Add `02_GenModelFix` to SqlScripts folder.
 
@@ -54,7 +57,8 @@ Packages folder has been created in solution folder. It's not visible in Solutio
 
 5.5 EF Designer from database.
 
-5.6 Create new connection to Todo database. Use *MySQL Database (MySQL Data Provider)*. Make use of Test Connection window.
+5.6 Create new connection to Todo database. Use *MySQL Database (MySQL Data Provider)*. Make use of *Test Connection* window.
+Note: *Go to advanced connection settings to set non default port (other than 3306).*
 
 5.7 Yes, include the sensitive data in connection string.
 
