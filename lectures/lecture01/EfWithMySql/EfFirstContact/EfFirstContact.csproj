@@ -68,6 +68,7 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="SqlScripts\02_GenModelFix .sql" />
     <Content Include="SqlScripts\01_Init.sql" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
