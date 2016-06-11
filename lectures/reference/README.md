@@ -34,7 +34,7 @@ Check out `package.config` which has been updated with project dependencies for 
 
 ```
 <packages>
-  <package id="EntityFramework" version="6.0.0" targetFramework="net452" />
+  <package id="EntityFramework" version="6.1.3" targetFramework="net452" />
   <package id="MySql.Data" version="6.9.8" targetFramework="net452" />
   <package id="MySql.Data.Entity" version="6.9.8" targetFramework="net452" />
 </packages>
