@@ -1,16 +1,18 @@
 # Lecture #1
 
+## Entity Framework First Contact
+Todo application that'll introduce us to Entity Framework with database first approach.
 
-#### 1. Create empty solution named `EfWithMySql`. This is abberivation from Entity Framework with MySQL.
+#### 1 Create empty solution named `EfWithMySql`. This is abberivation from Entity Framework with MySQL.
 *Keep an eye on letter case.*
 
 Hint:
 *New Project window -> Installed -> Templates -> Other Project Types -> Visual Studio Solutions -> Blank Solution*
 
-#### 2. Add console application named `EfFirstContact` to this solution.
+#### 2 Add console application named `EfFirstContact` to this solution.
 2.1. Compile and run it. Make it write `Hello world!` message to the console.
 
-#### 3. Create database initialization script for Todo application.
+#### 3 Create database initialization script for Todo application.
 3.1 Inside project create `SqlScripts` folder. 
 
 3.2 Create `01_Init.sql` SQL script in this folder. 
@@ -27,7 +29,7 @@ TodoItem
 | SD | Call Miki   | (some data) | NULL          |
 | SD | Do homework | (some data) | (some data)   |
 
-#### 4. Install `MySql.Data.Entity` NuGet package.
+#### 4 Install `MySql.Data.Entity` NuGet package.
 Check out `package.config` which has been updated with project dependencies for MySql.
 
 ```
@@ -41,26 +43,26 @@ Project references have been updated. Look, there is EntityFramework reference.
 `App.config` file has been updated with `entityFramework` section.
 Packages folder has been created in solution folder. It's not visible in Solution Explorer. Snoop around it.
 
-#### 5. Create Todo database Entity Framework database first model.
-5.1. Add `02_GenModelFix` to SqlScripts folder.
+#### 5 Create Todo database Entity Framework database first model.
+5.1 Add `02_GenModelFix` to SqlScripts folder.
 
-5.2. Add one command to this script `set global optimizer_switch='derived_merge=off';`. It fixes issue with Entity Framework database first approach for MySQL databases.
+5.2 Add one command to this script `set global optimizer_switch='derived_merge=off';`. It fixes issue with Entity Framework database first approach for MySQL databases.
 
-5.3. Execute this script on `Todo` database.
+5.3 Execute this script on `Todo` database.
 
-5.4. Add ADO.NET Entity Data Model to project with name `TodoModel`.
+5.4 Add ADO.NET Entity Data Model to project with name `TodoModel`.
 
-5.5. EF Designer from database.
+5.5 EF Designer from database.
 
-5.6. Create new connection to Todo database. Use *MySQL Database (MySQL Data Provider)*. Make use of Test Connection window.
+5.6 Create new connection to Todo database. Use *MySQL Database (MySQL Data Provider)*. Make use of Test Connection window.
 
-5.7. Yes, include the sensitive data in connection string.
+5.7 Yes, include the sensitive data in connection string.
 
-5.8. Select all tables. There is only one table. *Pluralize or singularize... bla bla* shouldn't be checked. *Include foreign key... bla bla* should be checked.
+5.8 Select all tables. There is only one table. *Pluralize or singularize... bla bla* shouldn't be checked. *Include foreign key... bla bla* should be checked.
 
-5.9. Save and close `TodoModel.edmx` file. Build solution. Check out `ConnectionStrings` section in `App.config`.
+5.9 Save and close `TodoModel.edmx` file. Build solution. Check out `ConnectionStrings` section in `App.config`.
 
-#### 6. Connect to database. See if some todo items exist.
+#### 6 Connect to database. See if some todo items exist.
 ```
 var db = new TodoEntities();
 var todoItemsExist = db.todoitem.Any();
@@ -68,10 +70,11 @@ Console.WriteLine(todoItemsExist);
 ```
 Output should be `True`.
 
-#### 7. Write all tasks to console when application starts.
+#### 7 Write all tasks to console when application starts.
 Extract logic to `TodoApp` class.
 
-#### 8. Create skeleton for interactive console application.
+
+#### 8 Create skeleton for interactive console application.
 8.1 Create class `CommandLoop` that will read commands from console and act on them.
 List of supported commands:
 
@@ -86,8 +89,36 @@ List of supported commands:
 Support `exit` and `help` for now.
 *Help mesage for now can be `TODO: help :)`.*
 
-#### 9. Support adding todo item. Read description from command line.
+#### 9 Support adding todo item. Read description from command line.
 
-#### 10. Support set todo item done. Read todo item id from command line.
+#### 10 Support set todo item done. Read todo item id from command line.
 10.1 Validate todo item id. Write message and help after it if todo item isn't valid.
 
+
+## Entity Framework Code First Todo 
+Todo application that'll introduce us to Entity Framework with *code first approach*. Functionallity should be the same as in previous todo application we've built.
+
+#### 1 Add console application named `EfCodeFirstTodo` to this solution.
+1.1 Compile and run it. Make it write `Hello world!` message to the console.
+
+#### 2 Copy existing program infrastructure from `EfWithMySql` project.
+2.1 Copy `Program`, `CommandLoop` and `TodoCommands` classes to new project. Make sure classes are put in appropriate namespaces. Namespaces from this project.
+
+*NOTE: Copy pasting code all over solution is considered bad programming practice. Code should be refactored instead. Right now we don't want to loose focus on refactoring, but stay focused on studying Entity Framework code first approach.*
+
+2.2 Create empty `TodoApp` class. All methods referenced from other parts of application should throw `NotImplementedException`. Example:
+
+```
+public class TodoApp
+{
+    ...
+
+    internal void List()
+    {
+        throw new NotImplementedException();
+    }
+
+    ...
+}
+```
+2.3 Build application. There shouldn't be any compilation errors. However application will crash on start, because todo logic isn't implemented yet.

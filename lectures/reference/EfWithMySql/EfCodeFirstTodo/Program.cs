@@ -10,7 +10,10 @@ namespace EfCodeFirstTodo
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("monkey");
+            var app = new TodoApp();
+
+            var commandLoop = new CommandLoop(app);
+            commandLoop.Run();
         }
     }
 }
