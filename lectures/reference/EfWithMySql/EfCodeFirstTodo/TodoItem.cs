@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace EfCodeFirstTodo
 {
-    class TodoItem
+    public class TodoItem
     {
         public int Id { get; set; }
 
@@ -14,6 +14,6 @@ namespace EfCodeFirstTodo
 
         public DateTime TimeCreated { get; set; }
 
-        public DateTime TimeSetDone { get; set; }
+        public DateTime? TimeSetDone { get; set; }
     }
 }

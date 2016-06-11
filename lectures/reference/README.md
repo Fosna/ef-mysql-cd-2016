@@ -129,7 +129,57 @@ public class TodoApp
 
 #### 3 Install `MySql.Data.Entity` NuGet package.
 
-#### 4 Create database for todo app
+#### 4 Create database for todo app.
 4.1 Create `TodoItem` class.
+
 4.2 Create database context named `TodoEntities`.
+```
+public class TodoEntities : DbContext
+{
+    public TodoEntities() : base("TodoEntities")
+    {
+        Database.SetInitializer(new TodoEntitiesInitializer());
+    }
+
+    public DbSet<TodoItem> TodoItems { get; set; }
+}
+```
+
+4.3 Create class for database initialization `TodoEntitiesInitializer`.
+```
+// Database will be dropped and created again on every database schema change.
+// Use only for development!!!
+public class TodoEntitiesInitializer : DropCreateDatabaseAlways<TodoEntities>
+{
+    protected override void Seed(TodoEntities context)
+    {
+        context.TodoItems.Add(new TodoItem
+        {
+            Description = "Buy milk",
+            TimeCreated = DateTime.Now.AddDays(-2),
+            TimeSetDone = null,
+        });
+        
+        // ... Add some more
+        
+        base.Seed(context);
+    }
+}
+```
+
+4.4 Add connection string to `TodoCf` (Todo Code First) database.
+```
+  <connectionStrings>
+    <add name="TodoEntities" providerName="MySql.Data.MySqlClient" connectionString="server=localhost;UserId=root;Password=root;database=TodoCf;CharSet=utf8;Persist Security Info=True" />
+  </connectionStrings>EntityClient" />
+  </connectionStrings>
+```
+Notice how this connection string is different that connection string from previous database first project.
+
+4.5 Build to check if everything compiles. :)
+
+4.6 Implement `TodoApp.List()` method.
+Data loading API is almost the same as in previous project.
+
+
 
