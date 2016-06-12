@@ -33,11 +33,8 @@ namespace EfFirstContact
 
         internal void SetDone()
         {
-            Console.Write("Id> ");
-            var idText = Console.ReadLine().Trim();
-
             int id;
-            if (int.TryParse(idText, out id))
+            if (TryReadId(out id))
             {
                 var setMeToDone = db.todoitem.SingleOrDefault(x => x.Id == id);
                 if (setMeToDone != null)
@@ -49,11 +46,27 @@ namespace EfFirstContact
                 {
                     Console.WriteLine("Todo item not found. Please enter valid todo item id.");
                 }
-                
+            }
+        }
+
+        internal void Remove()
+        {
+            throw new NotImplementedException();
+        }
+
+        private bool TryReadId(out int id)
+        {
+            Console.Write("Id> ");
+            var idText = Console.ReadLine().Trim();
+
+            if (int.TryParse(idText, out id))
+            {
+                return true;
             }
             else
             {
-                Console.WriteLine("Invalid input. Please write todo item id.");
+                Console.WriteLine("Invalid input. Please enter todo item id.");
+                return false;
             }
         }
 

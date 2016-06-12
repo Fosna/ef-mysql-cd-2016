@@ -35,6 +35,10 @@ namespace EfFirstContact
                 {
                     app.SetDone();
                 }
+                else if (commandText == "remove")
+                {
+                    app.Remove();
+                }
 
 
             } while (commandText != "exit");
