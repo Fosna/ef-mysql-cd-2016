@@ -41,6 +41,8 @@ namespace EfFirstContact
                 {
                     setMeToDone.TimeSetToDone = DateTime.Now;
                     this.db.SaveChanges();
+
+                    Console.WriteLine("Todo items set to done.");
                 }
                 else
                 {
@@ -60,17 +62,19 @@ namespace EfFirstContact
                 {
                     this.db.todoitem.Remove(deleteMe);
                     this.db.SaveChanges();
+
+                    Console.WriteLine("Todo item has been removed.");
                 }
                 else
                 {
-                    Console.WriteLine("Some msg!");
+                    Console.WriteLine("Todo item not found. Please enter valid todo item id.");
                 }
             }
         }
 
         private bool TryReadId(out int id)
         {
-            Console.Write("Id> ");
+            Console.Write("Id>");
             var idText = Console.ReadLine().Trim();
 
             if (int.TryParse(idText, out id))
@@ -86,7 +90,7 @@ namespace EfFirstContact
 
         internal void Add()
         {
-            Console.Write("Description> ");
+            Console.Write("Description>");
             var description = Console.ReadLine().Trim();
 
             var addMe = new todoitem();
@@ -95,6 +99,8 @@ namespace EfFirstContact
 
             this.db.todoitem.Add(addMe);
             this.db.SaveChanges();
+
+            Console.WriteLine("Todo item has been added.");
         }
     }
 }

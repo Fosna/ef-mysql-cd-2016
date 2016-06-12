@@ -16,7 +16,7 @@ namespace EfFirstContact
             string commandText;
             do
             {
-                Console.Write("> ");
+                Console.Write(">");
                 commandText = Console.ReadLine().ToLower().Trim();
 
                 if (commandText == "help")
@@ -46,7 +46,13 @@ namespace EfFirstContact
 
         private void WriteHelp()
         {
-            Console.WriteLine("There will be some help here one day!");
+            Console.WriteLine("list - Write todo items.");
+            Console.WriteLine("add - Add new todo item.");
+            Console.WriteLine("done - Mark todo item as done.");
+            Console.WriteLine("remove - Remove todo item from list.");
+            Console.WriteLine("help - Show this message.");
+            Console.WriteLine("exit - Exit program.");
+            Console.WriteLine();
         }
     }
 }
