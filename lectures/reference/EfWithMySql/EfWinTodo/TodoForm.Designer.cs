@@ -1,6 +1,6 @@
 ﻿namespace EfWinTodo
 {
-    partial class Form1
+    partial class TodoForm
     {
         /// <summary>
         /// Required designer variable.
@@ -98,15 +98,15 @@
             this.timeSetToDoneDataGridViewTextBoxColumn.HeaderText = "TimeSetToDone";
             this.timeSetToDoneDataGridViewTextBoxColumn.Name = "timeSetToDoneDataGridViewTextBoxColumn";
             // 
-            // Form1
+            // TodoForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(669, 482);
             this.Controls.Add(this.todoGridView);
             this.Controls.Add(this.todoBindingNavigator);
-            this.Name = "Form1";
-            this.Text = "Form1";
+            this.Name = "TodoForm";
+            this.Text = "Todo";
             ((System.ComponentModel.ISupportInitialize)(this.todoGridView)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

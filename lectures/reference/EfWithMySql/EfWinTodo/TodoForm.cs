@@ -11,9 +11,9 @@ using System.Windows.Forms;
 
 namespace EfWinTodo
 {
-    public partial class Form1 : Form
+    public partial class TodoForm : Form
     {
-        public Form1()
+        public TodoForm()
         {
             InitializeComponent();
         }
