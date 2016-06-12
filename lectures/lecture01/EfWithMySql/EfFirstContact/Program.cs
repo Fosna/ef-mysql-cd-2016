@@ -13,10 +13,22 @@ namespace EfFirstContact
             // Create database context. Context is generated from ADO.NET Entity Data Model database first wizard. 
             var db = new todoEntities();
             // db.todoitem is table representation of TodoItem table in database.
-            // Any is extension method that checks if there are any rows in database.
-            var todoItemsExist = db.todoitem.Any();
+            List<todoitem> todoItemList = db.todoitem.ToList();
 
-            Console.WriteLine(todoItemsExist);
+            // Write each todo item to console.
+            foreach (var todoItem in todoItemList)
+            {
+                Console.WriteLine($"Id: {todoItem.Id}");
+                Console.WriteLine($"Description: {todoItem.Description}");
+                Console.WriteLine($"Created: {todoItem.TimeCreated}");
+                var isDone = false;
+                if (todoItem.TimeSetToDone.HasValue)
+                {
+                    isDone = true;
+                }
+                Console.WriteLine($"Done?: {isDone}");
+                Console.WriteLine();
+            }
         }
     }
 }
