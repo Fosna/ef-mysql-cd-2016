@@ -34,21 +34,12 @@ namespace EfFirstContact
         internal void SetDone()
         {
             Console.Write("Id> ");
-            var idText = Console.ReadLine();
+            var idText = Console.ReadLine().Trim();
 
-            if (string.IsNullOrEmpty(idText) == false)
+            int id;
+            if (int.TryParse(idText, out id))
             {
-                int id;
-                try
-                {
-                    id = int.Parse(idText);
-
-                    Console.WriteLine("Debug: {0}", id);
-                }
-                catch (FormatException)
-                {
-                    Console.WriteLine("Invalid input. Please write todo item id.");
-                }
+                Console.WriteLine("Debug: {0}", id);
             }
             else
             {
