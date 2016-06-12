@@ -51,7 +51,21 @@ namespace EfFirstContact
 
         internal void Remove()
         {
-            throw new NotImplementedException();
+            int id;
+            if (TryReadId(out id))
+            {
+                var deleteMe = db.todoitem.SingleOrDefault(x => x.Id == id);
+
+                if (deleteMe != null)
+                {
+                    this.db.todoitem.Remove(deleteMe);
+                    this.db.SaveChanges();
+                }
+                else
+                {
+                    Console.WriteLine("Some msg!");
+                }
+            }
         }
 
         private bool TryReadId(out int id)
