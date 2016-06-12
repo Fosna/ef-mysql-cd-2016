@@ -72,3 +72,18 @@ Output should be `True`.
 
 #### 7 Write all tasks to console when application starts.
 Extract logic to `TodoApp` class.
+
+#### 8 Create skeleton for interactive console application.
+8.1 Create class `CommandLoop` that will read commands from console and act on them.
+List of supported commands:
+
+| Command Constant Name | Command Text |
+| --------------------- | ------------ |
+| EXIT                  | exit         |
+| HELP                  | help         |
+| LIST                  | list         |
+| ADD                   | add          |
+| SET_DONE              | done         |
+
+Support `exit` and `help` for now.
+*Help mesage for now can be `TODO: help :)`.*
