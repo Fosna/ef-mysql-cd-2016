@@ -27,6 +27,10 @@ namespace EfFirstContact
                 {
                     app.List();
                 }
+                else if (commandText == "add")
+                {
+                    app.Add();
+                }
 
 
             } while (commandText != "exit");

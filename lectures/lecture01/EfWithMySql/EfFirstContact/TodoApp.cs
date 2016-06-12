@@ -14,7 +14,7 @@ namespace EfFirstContact
 
         public void List()
         {
-            var todoItemList = db.todoitem.ToList();
+            var todoItemList = this.db.todoitem.ToList();
 
             foreach (var todoItem in todoItemList)
             {
@@ -29,6 +29,19 @@ namespace EfFirstContact
                 Console.WriteLine($"Done?: {isDone}");
                 Console.WriteLine();
             }
+        }
+
+        internal void Add()
+        {
+            Console.Write("Description > ");
+            var description = Console.ReadLine().Trim();
+
+            var addMe = new todoitem();
+            addMe.Description = description;
+            addMe.TimeCreated = DateTime.Now;
+
+            this.db.todoitem.Add(addMe);
+            this.db.SaveChanges();
         }
     }
 }
