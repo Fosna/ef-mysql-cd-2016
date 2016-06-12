@@ -39,7 +39,17 @@ namespace EfFirstContact
             int id;
             if (int.TryParse(idText, out id))
             {
-                Console.WriteLine("Debug: {0}", id);
+                var setMeToDone = db.todoitem.SingleOrDefault(x => x.Id == id);
+                if (setMeToDone != null)
+                {
+                    setMeToDone.TimeSetToDone = DateTime.Now;
+                    this.db.SaveChanges();
+                }
+                else
+                {
+                    Console.WriteLine("Todo item not found. Please enter valid todo item id.");
+                }
+                
             }
             else
             {
@@ -49,7 +59,7 @@ namespace EfFirstContact
 
         internal void Add()
         {
-            Console.Write("Description > ");
+            Console.Write("Description> ");
             var description = Console.ReadLine().Trim();
 
             var addMe = new todoitem();
