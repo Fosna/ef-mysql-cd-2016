@@ -9,6 +9,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EfCodeFirstTodo", "EfCodeFi
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EF6Winforms", "EF6WinForms\EF6Winforms.csproj", "{BC070117-CAD0-4B62-AB0E-5F6B4955F164}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EfWinTodo", "EfWinTodo\EfWinTodo.csproj", "{5AF09CCF-5280-4C1D-9AA5-38A333182C74}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -41,6 +43,14 @@ Global
 		{BC070117-CAD0-4B62-AB0E-5F6B4955F164}.Release|Any CPU.Build.0 = Release|Any CPU
 		{BC070117-CAD0-4B62-AB0E-5F6B4955F164}.Release|x86.ActiveCfg = Release|x86
 		{BC070117-CAD0-4B62-AB0E-5F6B4955F164}.Release|x86.Build.0 = Release|x86
+		{5AF09CCF-5280-4C1D-9AA5-38A333182C74}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5AF09CCF-5280-4C1D-9AA5-38A333182C74}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5AF09CCF-5280-4C1D-9AA5-38A333182C74}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{5AF09CCF-5280-4C1D-9AA5-38A333182C74}.Debug|x86.Build.0 = Debug|Any CPU
+		{5AF09CCF-5280-4C1D-9AA5-38A333182C74}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5AF09CCF-5280-4C1D-9AA5-38A333182C74}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5AF09CCF-5280-4C1D-9AA5-38A333182C74}.Release|x86.ActiveCfg = Release|Any CPU
+		{5AF09CCF-5280-4C1D-9AA5-38A333182C74}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
