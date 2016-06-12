@@ -3,7 +3,7 @@ using System.Data.Entity;
 
 namespace EfCodeFirstTodo
 {
-    public class TodoEntitiesInitializer : DropCreateDatabaseAlways<TodoEntities>
+    public class TodoEntitiesInitializer : DropCreateDatabaseIfModelChanges<TodoEntities>
     {
         protected override void Seed(TodoEntities context)
         {

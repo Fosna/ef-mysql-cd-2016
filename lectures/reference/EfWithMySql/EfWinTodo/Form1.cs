@@ -16,11 +16,6 @@ namespace EfWinTodo
         public Form1()
         {
             InitializeComponent();
-
-            var db = new TodoEntities();
-            var todoItemsExist = db.TodoItems.Any();
-
-            MessageBox.Show(todoItemsExist.ToString());
         }
     }
 }

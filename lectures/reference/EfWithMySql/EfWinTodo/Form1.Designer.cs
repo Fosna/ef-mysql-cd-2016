@@ -45,6 +45,8 @@
             // 
             // todoBindingNavigator
             // 
+            this.todoBindingNavigator.DataMember = "TodoItems";
+            this.todoBindingNavigator.DataSource = this.todoDataSource;
             this.todoBindingNavigator.ImageScalingSize = new System.Drawing.Size(20, 20);
             this.todoBindingNavigator.Location = new System.Drawing.Point(0, 0);
             this.todoBindingNavigator.Name = "todoBindingNavigator";
