@@ -14,6 +14,11 @@ namespace EfCodeFirstTodo
             Database.SetInitializer(new TodoEntitiesInitializer());
         }
 
+        protected override void OnModelCreating(DbModelBuilder modelBuilder)
+        {
+            modelBuilder.Entity<TodoItem>().Ignore(x => x.IsDone);
+        }
+
         public DbSet<TodoItem> TodoItems { get; set; }
     }
 }

@@ -15,5 +15,26 @@ namespace EfCodeFirstTodo
         public DateTime TimeCreated { get; set; }
 
         public DateTime? TimeSetToDone { get; set; }
+
+        public bool IsDone
+        {
+            get
+            {
+                var isDone = TimeSetToDone.HasValue;
+                return isDone;
+            }
+            set
+            {
+                var isDone = value;
+                if (isDone)
+                {
+                    TimeSetToDone = DateTime.Now;
+                }
+                else
+                {
+                    TimeSetToDone = null;
+                }
+            }
+        }
     }
 }
