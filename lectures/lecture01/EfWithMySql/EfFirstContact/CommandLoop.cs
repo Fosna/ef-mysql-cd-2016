@@ -23,6 +23,10 @@ namespace EfFirstContact
                 {
                     WriteHelp();
                 }
+                else if (commandText == "list")
+                {
+                    app.List();
+                }
 
 
             } while (commandText != "exit");
