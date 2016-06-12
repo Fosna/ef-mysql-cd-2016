@@ -1,4 +1,5 @@
-﻿using System;
+﻿using EfCodeFirstTodo;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -15,6 +16,11 @@ namespace EfWinTodo
         public Form1()
         {
             InitializeComponent();
+
+            var db = new TodoEntities();
+            var todoItemsExist = db.TodoItems.Any();
+
+            MessageBox.Show(todoItemsExist.ToString());
         }
     }
 }
