@@ -31,6 +31,31 @@ namespace EfFirstContact
             }
         }
 
+        internal void SetDone()
+        {
+            Console.Write("Id> ");
+            var idText = Console.ReadLine();
+
+            if (string.IsNullOrEmpty(idText) == false)
+            {
+                int id;
+                try
+                {
+                    id = int.Parse(idText);
+
+                    Console.WriteLine("Debug: {0}", id);
+                }
+                catch (FormatException)
+                {
+                    Console.WriteLine("Invalid input. Please write todo item id.");
+                }
+            }
+            else
+            {
+                Console.WriteLine("Invalid input. Please write todo item id.");
+            }
+        }
+
         internal void Add()
         {
             Console.Write("Description > ");

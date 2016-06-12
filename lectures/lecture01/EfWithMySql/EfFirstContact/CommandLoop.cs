@@ -31,6 +31,10 @@ namespace EfFirstContact
                 {
                     app.Add();
                 }
+                else if (commandText == "done")
+                {
+                    app.SetDone();
+                }
 
 
             } while (commandText != "exit");
