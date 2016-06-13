@@ -30,11 +30,11 @@
         {
             this.components = new System.ComponentModel.Container();
             this.todoGridView = new System.Windows.Forms.DataGridView();
-            this.todoDataSource = new EFWinforms.EntityDataSource(this.components);
-            this.todoBindingNavigator = new EFWinforms.EntityBindingNavigator();
             this.descriptionDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.timeCreatedDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.isDoneDataGridViewCheckBoxColumn = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.todoDataSource = new EFWinforms.EntityDataSource(this.components);
+            this.todoBindingNavigator = new EFWinforms.EntityBindingNavigator();
             ((System.ComponentModel.ISupportInitialize)(this.todoGridView)).BeginInit();
             this.SuspendLayout();
             // 
@@ -56,21 +56,7 @@
             this.todoGridView.RowTemplate.Height = 24;
             this.todoGridView.Size = new System.Drawing.Size(669, 451);
             this.todoGridView.TabIndex = 1;
-            // 
-            // todoDataSource
-            // 
-            this.todoDataSource.DbContextType = typeof(EfCodeFirstTodo.TodoEntities);
-            // 
-            // todoBindingNavigator
-            // 
-            this.todoBindingNavigator.DataMember = "TodoItems";
-            this.todoBindingNavigator.DataSource = this.todoDataSource;
-            this.todoBindingNavigator.ImageScalingSize = new System.Drawing.Size(20, 20);
-            this.todoBindingNavigator.Location = new System.Drawing.Point(0, 0);
-            this.todoBindingNavigator.Name = "todoBindingNavigator";
-            this.todoBindingNavigator.Size = new System.Drawing.Size(669, 27);
-            this.todoBindingNavigator.TabIndex = 0;
-            this.todoBindingNavigator.Text = "entityBindingNavigator1";
+            this.todoGridView.DefaultValuesNeeded += new System.Windows.Forms.DataGridViewRowEventHandler(this.todoGridView_DefaultValuesNeeded);
             // 
             // descriptionDataGridViewTextBoxColumn
             // 
@@ -93,6 +79,21 @@
             this.isDoneDataGridViewCheckBoxColumn.DataPropertyName = "IsDone";
             this.isDoneDataGridViewCheckBoxColumn.HeaderText = "Is Done?";
             this.isDoneDataGridViewCheckBoxColumn.Name = "isDoneDataGridViewCheckBoxColumn";
+            // 
+            // todoDataSource
+            // 
+            this.todoDataSource.DbContextType = typeof(EfCodeFirstTodo.TodoEntities);
+            // 
+            // todoBindingNavigator
+            // 
+            this.todoBindingNavigator.DataMember = "TodoItems";
+            this.todoBindingNavigator.DataSource = this.todoDataSource;
+            this.todoBindingNavigator.ImageScalingSize = new System.Drawing.Size(20, 20);
+            this.todoBindingNavigator.Location = new System.Drawing.Point(0, 0);
+            this.todoBindingNavigator.Name = "todoBindingNavigator";
+            this.todoBindingNavigator.Size = new System.Drawing.Size(669, 27);
+            this.todoBindingNavigator.TabIndex = 0;
+            this.todoBindingNavigator.Text = "entityBindingNavigator1";
             // 
             // TodoForm
             // 

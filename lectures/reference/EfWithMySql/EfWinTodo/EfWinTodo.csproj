@@ -106,6 +106,10 @@
       <Project>{ed1ce5dc-4112-4dea-bb39-8372045da6ce}</Project>
       <Name>EfCodeFirstTodo</Name>
     </ProjectReference>
+    <ProjectReference Include="..\SweetStuff\SweetStuff.csproj">
+      <Project>{4010106f-f3a9-4d10-8927-b1f4790207f7}</Project>
+      <Name>SweetStuff</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
