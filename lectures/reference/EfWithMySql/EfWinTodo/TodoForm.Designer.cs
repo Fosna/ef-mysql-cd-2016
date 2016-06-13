@@ -56,6 +56,7 @@
             this.todoGridView.RowTemplate.Height = 24;
             this.todoGridView.Size = new System.Drawing.Size(669, 451);
             this.todoGridView.TabIndex = 1;
+            this.todoGridView.CurrentCellDirtyStateChanged += new System.EventHandler(this.todoGridView_CurrentCellDirtyStateChanged);
             this.todoGridView.DefaultValuesNeeded += new System.Windows.Forms.DataGridViewRowEventHandler(this.todoGridView_DefaultValuesNeeded);
             // 
             // descriptionDataGridViewTextBoxColumn
