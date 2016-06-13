@@ -90,7 +90,7 @@ INSERT Standard (`StandardId`, `StandardName`, `Description`) values
 
 
 INSERT Student (`StudentID`, `StudentName`, `StandardId`) VALUES (1, 'Student1', NULL)
-, (2, 'Student2', NULL)
+, (2, 'Student2', 1)
 , (3, 'Student3', NULL)
 , (4, 'Student4', NULL)
 , (5, 'Student5', NULL)

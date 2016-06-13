@@ -15,7 +15,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SweetStuff", "SweetStuff\Sw
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EfWinTodo.DataLayer", "EfWinTodo.DataLayer\EfWinTodo.DataLayer.csproj", "{BCBB57BD-13AF-48E9-84E9-FA11FD269C80}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EFBasicTutorials", "..\..\..\..\EFBasicTutorials\EFBasicTutorials\EFBasicTutorials.csproj", "{CA4CB6BF-6BBD-44A7-8084-1AD2A0BBE352}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EFBasicTutorials", "EFBasicTutorials\EFBasicTutorials.csproj", "{CA4CB6BF-6BBD-44A7-8084-1AD2A0BBE352}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

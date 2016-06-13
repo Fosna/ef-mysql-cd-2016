@@ -163,7 +163,7 @@
     </BootstrapperPackage>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\ef-mysql-cd-2016\lectures\reference\EfWithMySql\SweetStuff\SweetStuff.csproj">
+    <ProjectReference Include="..\SweetStuff\SweetStuff.csproj">
       <Project>{4010106f-f3a9-4d10-8927-b1f4790207f7}</Project>
       <Name>SweetStuff</Name>
     </ProjectReference>

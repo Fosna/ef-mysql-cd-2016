@@ -285,7 +285,7 @@ namespace EFBasicTutorials
 
                 //Loads Student address for particular Student only (seperate SQL query)
                 standard std = student.standard;
-                Console.WriteLine(std.DumpJson());
+                Console.WriteLine($"Standard {std.StandardId}:{std.StandardName}");
             }
             Console.WriteLine("*** LazyLoadingDemo Finished ***");
         }
@@ -296,6 +296,8 @@ namespace EFBasicTutorials
 
             using (var context = new SchoolDbEntities())
             {
+                context.Database.Log = Console.Write;
+
                 //Loading students only
                 IList<student> studList = context.students.ToList<student>();
 
@@ -303,9 +305,14 @@ namespace EFBasicTutorials
 
                 //Loads Standard for particular Student only (seperate SQL query)
                 context.Entry(std).Reference(s => s.standard).Load();
+                Console.WriteLine($"StandardId: {std.standard.StandardId}");
+                Console.WriteLine($"Description: {std.standard.Description}");
 
                 //Loads Courses for particular Student only (seperate SQL query)
                 context.Entry(std).Collection(s => s.courses).Load();
+                Console.WriteLine("Courses for Standard: ");
+                Console.WriteLine(string.Join(", ", std.courses.Select(x => x.CourseId)));
+                Console.WriteLine(string.Join(", ", std.courses.Select(x => x.CourseName)));
             }
 
             Console.WriteLine("*** ExplicitLoadingDemo Finished ***");
