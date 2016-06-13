@@ -13,6 +13,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EfWinTodo", "EfWinTodo\EfWi
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SweetStuff", "SweetStuff\SweetStuff.csproj", "{4010106F-F3A9-4D10-8927-B1F4790207F7}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EfWinTodo.DataLayer", "EfWinTodo.DataLayer\EfWinTodo.DataLayer.csproj", "{BCBB57BD-13AF-48E9-84E9-FA11FD269C80}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -61,6 +63,14 @@ Global
 		{4010106F-F3A9-4D10-8927-B1F4790207F7}.Release|Any CPU.Build.0 = Release|Any CPU
 		{4010106F-F3A9-4D10-8927-B1F4790207F7}.Release|x86.ActiveCfg = Release|Any CPU
 		{4010106F-F3A9-4D10-8927-B1F4790207F7}.Release|x86.Build.0 = Release|Any CPU
+		{BCBB57BD-13AF-48E9-84E9-FA11FD269C80}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BCBB57BD-13AF-48E9-84E9-FA11FD269C80}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BCBB57BD-13AF-48E9-84E9-FA11FD269C80}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{BCBB57BD-13AF-48E9-84E9-FA11FD269C80}.Debug|x86.Build.0 = Debug|Any CPU
+		{BCBB57BD-13AF-48E9-84E9-FA11FD269C80}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BCBB57BD-13AF-48E9-84E9-FA11FD269C80}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BCBB57BD-13AF-48E9-84E9-FA11FD269C80}.Release|x86.ActiveCfg = Release|Any CPU
+		{BCBB57BD-13AF-48E9-84E9-FA11FD269C80}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
