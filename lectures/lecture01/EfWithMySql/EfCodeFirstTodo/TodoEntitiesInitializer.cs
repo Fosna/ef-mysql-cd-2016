@@ -5,7 +5,7 @@ namespace EfCodeFirstTodo
 {
     // Database will be dropped and created again on every database schema change.
     // Use only for development!!!
-    public class TodoEntitiesInitializer : DropCreateDatabaseAlways<TodoEntities>
+    public class TodoEntitiesInitializer : DropCreateDatabaseIfModelChanges<TodoEntities>
     {
         protected override void Seed(TodoEntities context)
         {
