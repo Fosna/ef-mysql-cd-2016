@@ -158,7 +158,7 @@ public class TodoApp
 #### 4 Create database for todo app.
 4.1 Create `TodoItem` class.
 
-4.2 Create database context named `TodoEntities`.
+4.2 Create database context named `TodoEntities` which is another class.
 ```
 public class TodoEntities : DbContext
 {
