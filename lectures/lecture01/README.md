@@ -197,7 +197,6 @@ public class TodoEntitiesInitializer : DropCreateDatabaseAlways<TodoEntities>
 ```
   <connectionStrings>
     <add name="TodoEntities" providerName="MySql.Data.MySqlClient" connectionString="server=localhost;UserId=root;Password=root;database=TodoCf;CharSet=utf8;Persist Security Info=True" />
-  </connectionStrings>EntityClient" />
   </connectionStrings>
 ```
 Notice how this connection string is different that connection string from previous database first project.
