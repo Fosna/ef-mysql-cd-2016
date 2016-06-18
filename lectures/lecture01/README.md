@@ -87,3 +87,40 @@ List of supported commands:
 
 Support `exit` and `help` for now.
 *Help mesage for now can be `TODO: help :)`.*
+
+#### 9 When homework is done...
+
+#### 10 Refactor magic strings from `TodoApp` class to `TodoCommandsClass`
+Draft for the class follows
+````
+class TodoCommands
+{
+    public const string INVALID = "";
+    public const string HELP = "help";
+    public const string EXIT = "exit";
+
+    //...
+
+    private static List<string> GetAllCommands()
+    {
+        var commandList = new List<string>
+        {
+            //...
+            HELP,
+            EXIT,
+        };
+        return commandList;
+    }
+
+    public static string ParseCommand(string userInput)
+    {
+        var command = GetAllCommands().SingleOrDefault(x => x.ToLower() == userInput.Trim().ToLower());
+        if (command == null)
+        {
+            command = INVALID;
+        }
+        return command;
+    }
+}
+
+````
