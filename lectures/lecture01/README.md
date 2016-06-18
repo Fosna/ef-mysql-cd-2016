@@ -124,3 +124,31 @@ class TodoCommands
 }
 
 ````
+
+## Entity Framework Code First Todo 
+Todo application that'll introduce us to Entity Framework with *code first approach*. Functionallity should be the same as in previous todo application we've built.
+
+#### 1 Add console application named `EfCodeFirstTodo` to this solution.
+1.1 Compile and run it. Make it write `Hello world!` message to the console.
+
+#### 2 Copy existing program infrastructure from `EfWithMySql` project.
+2.1 Copy `Program`, `CommandLoop` and `TodoCommands` classes to new project. Make sure classes are put in appropriate namespaces. Namespaces from this project.
+
+*NOTE: Copy pasting code all over solution is considered bad programming practice. Code should be refactored instead. Right now we don't want to loose focus on refactoring, but stay focused on studying Entity Framework code first approach.*
+
+2.2 Create empty `TodoApp` class. All methods referenced from other parts of application should throw `NotImplementedException`. Example:
+
+```
+public class TodoApp
+{
+    ...
+
+    internal void List()
+    {
+        throw new NotImplementedException();
+    }
+
+    ...
+}
+```
+2.3 Build application. There shouldn't be any compilation errors. However application will crash on start, because todo logic isn't implemented yet.
