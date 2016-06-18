@@ -13,35 +13,45 @@ namespace EfFirstContact
             var app = new TodoApp();
             app.List();
 
-            string commandText;
+            string command;
             do
             {
                 Console.Write(">");
-                commandText = Console.ReadLine().ToLower().Trim();
+                var commandText = Console.ReadLine();
+                command = TodoCommands.ParseCommand(commandText);
 
-                if (commandText == "help")
+                if (command == TodoCommands.HELP)
                 {
                     WriteHelp();
                 }
-                else if (commandText == "list")
+                else if (command == TodoCommands.LIST)
                 {
                     app.List();
                 }
-                else if (commandText == "add")
+                else if (command == TodoCommands.ADD)
                 {
                     app.Add();
                 }
-                else if (commandText == "done")
+                else if (command == TodoCommands.DONE)
                 {
                     app.SetDone();
                 }
-                else if (commandText == "remove")
+                else if (command == TodoCommands.REMOVE)
                 {
                     app.Remove();
                 }
+                else if (command == TodoCommands.INVALID)
+                {
+                    WriteInvalidCommandMessage();
+                }
 
+            } while (command != TodoCommands.EXIT);
+        }
 
-            } while (commandText != "exit");
+        private void WriteInvalidCommandMessage(string commandText = "monkey")
+        {
+            Console.WriteLine("Incorrect command. Consider using supported commands.");
+            WriteHelp();
         }
 
         private void WriteHelp()
