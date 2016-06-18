@@ -13,7 +13,7 @@ namespace EfCodeFirstTodo
             {
                 Description = "Buy milk",
                 TimeCreated = DateTime.Now.AddDays(-2),
-                TimeSetDone = null,
+                TimeSetToDone = null,
             });
 
             // ... Add some more
