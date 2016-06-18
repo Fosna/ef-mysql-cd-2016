@@ -2,28 +2,28 @@
 
 namespace EfCodeFirstTodo
 {
-    internal class TodoApp
+    public class TodoApp
     {
         public TodoApp()
         {
         }
 
-        internal void List()
+        public void List()
         {
             throw new NotImplementedException();
         }
 
-        internal void Add()
+        public void Add()
         {
             throw new NotImplementedException();
         }
 
-        internal void SetDone()
+        public void SetDone()
         {
             throw new NotImplementedException();
         }
 
-        internal void Remove()
+        public void Remove()
         {
             throw new NotImplementedException();
         }

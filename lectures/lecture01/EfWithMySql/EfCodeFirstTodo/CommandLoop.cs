@@ -2,13 +2,13 @@
 
 namespace EfCodeFirstTodo
 {
-    internal class CommandLoop
+    public class CommandLoop
     {
         public CommandLoop()
         {
         }
 
-        internal void Run()
+        public void Run()
         {
             var app = new TodoApp();
             app.List();
