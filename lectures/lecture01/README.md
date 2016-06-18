@@ -205,3 +205,5 @@ Notice how this connection string is different that connection string from previ
 
 4.6 Implement `TodoApp.List()` method.
 Data loading API is almost the same as in previous project.
+
+#### 5 Implement rest of todo app functionalities.
