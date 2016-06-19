@@ -45,7 +45,7 @@
             this.dataGridView1.Location = new System.Drawing.Point(13, 41);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.RowTemplate.Height = 24;
-            this.dataGridView1.Size = new System.Drawing.Size(652, 362);
+            this.dataGridView1.Size = new System.Drawing.Size(318, 362);
             this.dataGridView1.TabIndex = 0;
             // 
             // btnAdd
@@ -59,7 +59,7 @@
             // 
             // btnSave
             // 
-            this.btnSave.Location = new System.Drawing.Point(175, 12);
+            this.btnSave.Location = new System.Drawing.Point(590, 369);
             this.btnSave.Name = "btnSave";
             this.btnSave.Size = new System.Drawing.Size(75, 23);
             this.btnSave.TabIndex = 2;
@@ -68,7 +68,7 @@
             // 
             // btnCancel
             // 
-            this.btnCancel.Location = new System.Drawing.Point(94, 12);
+            this.btnCancel.Location = new System.Drawing.Point(509, 369);
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(75, 23);
             this.btnCancel.TabIndex = 3;
