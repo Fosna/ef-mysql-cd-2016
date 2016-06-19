@@ -13,7 +13,7 @@ namespace WfTodo
 {
     public partial class TodoForm : Form
     {
-        List<TodoItem> TodoItemList; 
+        List<TodoItem> TodoItemList;
 
         public TodoForm()
         {
@@ -46,11 +46,9 @@ namespace WfTodo
 
         private void dgvTodo_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            if (dgvTodo.SelectedRows.Count > 0)
+            int id;
+            if (TryGetSelectedId(out id))
             {
-                var selectedRow = dgvTodo.SelectedRows[0];
-                var id = (int)selectedRow.Cells[0].Value;
-
                 var selectedTodo = TodoItemList.Single(x => x.Id == id);
 
                 txtDescription.Text = selectedTodo.Description;
@@ -65,8 +63,26 @@ namespace WfTodo
                 {
                     dtpTimeSetToDone.Visible = false;
                 }
-                
+
             }
+        }
+
+        private void btnSave_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private bool TryGetSelectedId(out int id)
+        {
+            if (dgvTodo.SelectedRows.Count > 0)
+            {
+                var selectedRow = dgvTodo.SelectedRows[0];
+                id = (int)selectedRow.Cells[0].Value;
+                return true;
+            }
+
+            id = default(int);
+            return false;
         }
     }
 }
