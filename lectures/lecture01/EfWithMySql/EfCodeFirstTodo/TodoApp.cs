@@ -14,7 +14,9 @@ namespace EfCodeFirstTodo
 
         public void List()
         {
-            var todoItemList = db.TodoItems.ToList();
+            var todoItemList = db.TodoItems.
+                Where(x => x.TimeDeactivated == null).
+                ToList();
 
             foreach (var todoItem in todoItemList)
             {
@@ -69,7 +71,7 @@ namespace EfCodeFirstTodo
                 TodoItem doneTodo;
                 if (TryGetTodoById(removeId, out doneTodo))
                 {
-                    db.TodoItems.Remove(doneTodo);
+                    doneTodo.TimeDeactivated = DateTime.Now;
                     db.SaveChanges();
                     Console.WriteLine($"Todo item with id {removeId} has been removed.");
                 }
