@@ -73,15 +73,18 @@ namespace EfFirstContact
 
         private void WriteHelp()
         {
+            // Code review: Path has to be relative. Help file should be included in solution. Build action for this file should be set to "copy if newer".
+
             // Read each line of the file into a string array. Each element of the array is one line of the file.
-            string[] lines = System.IO.File.ReadAllLines(@"C:\Users\Antonija\Documents\Visual Studio 2015\Projects\EfWithMySql\EfFirstContact\bin\Debug\txt\help.txt");
+            string[] lines = System.IO.File.ReadAllLines(@"txt\Help.txt");
 
             // Display the file contents by using a foreach loop.
             foreach (string line in lines)
             {
                 Console.WriteLine(line);
             }
-            System.Console.ReadKey();
+
+            // Code review: No point to press enter after help is presented.
         }
     }
 }

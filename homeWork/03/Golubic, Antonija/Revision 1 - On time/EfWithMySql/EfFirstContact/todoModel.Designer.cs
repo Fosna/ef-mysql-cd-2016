@@ -1,4 +1,4 @@
-﻿// T4 code generation is enabled for model 'C:\Users\Antonija\Documents\Visual Studio 2015\Projects\EfWithMySql\EfFirstContact\todoModel.edmx'. 
+﻿// T4 code generation is enabled for model 'C:\Programming\cdef2016\ef-mysql-cd-2016\homeWork\03\Golubic, Antonija\Revision 1 - On time\EfWithMySql\EfFirstContact\todoModel.edmx'. 
 // To enable legacy code generation, change the value of the 'Code Generation Strategy' designer
 // property to 'Legacy ObjectContext'. This property is available in the Properties Window when the model
 // is open in the designer.

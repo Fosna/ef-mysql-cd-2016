@@ -22,19 +22,19 @@
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="todoModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityContainer Name="todoEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="todoitem" EntityType="todoModel.todoitem" />
+        </EntityContainer>
         <EntityType Name="todoitem">
           <Key>
             <PropertyRef Name="Id" />
           </Key>
           <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="Description" Type="String" MaxLength="1024" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Description" Type="String" Nullable="false" MaxLength="1024" FixedLength="false" Unicode="false" />
           <Property Name="TimeCreated" Type="DateTime" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="TimeSetToDone" Type="DateTime" />
-          <Property Name="TimeDeactivated" Type="DateTime" Nullable="false" />
+          <Property Name="TimeDeactivated" Type="DateTime" />
         </EntityType>
-        <EntityContainer Name="todoEntities" annotation:LazyLoadingEnabled="true">
-          <EntitySet Name="todoitem" EntityType="Self.todoitem" />
-        </EntityContainer>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -45,10 +45,10 @@
             <EntityTypeMapping TypeName="todoModel.todoitem">
               <MappingFragment StoreEntitySet="todoitem">
                 <ScalarProperty Name="TimeDeactivated" ColumnName="TimeDeactivated" />
-                <ScalarProperty Name="Id" ColumnName="Id" />
-                <ScalarProperty Name="Description" ColumnName="Description" />
-                <ScalarProperty Name="TimeCreated" ColumnName="TimeCreated" />
                 <ScalarProperty Name="TimeSetToDone" ColumnName="TimeSetToDone" />
+                <ScalarProperty Name="TimeCreated" ColumnName="TimeCreated" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

@@ -110,6 +110,9 @@
       <DependentUpon>todoModel.edmx</DependentUpon>
       <LastGenOutput>todoModel.cs</LastGenOutput>
     </Content>
+    <Content Include="txt\Help.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />

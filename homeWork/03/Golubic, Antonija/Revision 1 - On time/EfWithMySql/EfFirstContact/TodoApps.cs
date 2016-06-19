@@ -15,12 +15,16 @@ namespace EfFirstContact
 
         public void RemoveAll()
         {
-            var all = this.db.todoitem.ToList();
+            // Code review: Only active items should be deactivated. Otherwise time deactivated is corrupt for items that are already deactivated.
+            var all = this.db.todoitem.Where(x => x.TimeDeactivated == null).ToList();
 
             foreach (var todoItem in all)
             {
                 todoItem.TimeDeactivated = DateTime.Now;
             }
+
+            // Code review: Should issue save to db command.
+            this.db.SaveChanges();
         }
 
         public void List()
@@ -133,7 +137,8 @@ namespace EfFirstContact
             }
         }
 
-        private bool TryGetTodoItem(var tmp)
+        // Code review: var keyword can be used only in function body variable declaration. For other uses variable type has to be explicit. Try to avoid using tmp for variable name. It's not any good. Consider using "getMe" variable name.
+        private bool TryGetTodoItem(todoitem tmp)
         {
             int id;
             if (TryReadId(out id))

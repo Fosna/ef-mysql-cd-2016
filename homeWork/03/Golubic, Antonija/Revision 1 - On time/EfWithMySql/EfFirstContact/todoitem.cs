@@ -18,6 +18,8 @@ namespace EfFirstContact
         public string Description { get; set; }
         public System.DateTime TimeCreated { get; set; }
         public Nullable<System.DateTime> TimeSetToDone { get; set; }
-        public System.DateTime TimeDeactivated { get; set; }
+        // Upgrade model from database in designer didn't work.
+        // Table was removed from diagram and model was only then updated from database.
+        public Nullable<System.DateTime> TimeDeactivated { get; set; }
     }
 }
