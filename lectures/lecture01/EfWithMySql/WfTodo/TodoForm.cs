@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Diagnostics;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -33,6 +34,7 @@ namespace WfTodo
             thirdTodo.Id = 3;
             thirdTodo.Description = "third";
             thirdTodo.TimeCreated = DateTime.Now;
+            thirdTodo.TimeSetToDone = DateTime.Now;
 
             TodoItemList = new List<TodoItem>();
             TodoItemList.Add(firstTodo);
@@ -40,6 +42,21 @@ namespace WfTodo
             TodoItemList.Add(thirdTodo);
 
             dgvTodo.DataSource = TodoItemList;
+        }
+
+        private void dgvTodo_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (dgvTodo.SelectedRows.Count > 0)
+            {
+                var selectedRow = dgvTodo.SelectedRows[0];
+                var id = (int)selectedRow.Cells[0].Value;
+
+                var selectedTodo = TodoItemList.Single(x => x.Id == id);
+
+                txtDescription.Text = selectedTodo.Description;
+                cbxDone.Checked = selectedTodo.TimeSetToDone.HasValue;
+                dtpTimeCreated.Value = selectedTodo.TimeCreated;
+            }
         }
     }
 }

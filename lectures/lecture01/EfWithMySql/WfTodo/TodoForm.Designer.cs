@@ -34,9 +34,13 @@
             this.btnSave = new System.Windows.Forms.Button();
             this.btnCancel = new System.Windows.Forms.Button();
             this.btnRemove = new System.Windows.Forms.Button();
-            this.todoItemBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.txtDescription = new System.Windows.Forms.TextBox();
+            this.dtpTimeCreated = new System.Windows.Forms.DateTimePicker();
+            this.cbxDone = new System.Windows.Forms.CheckBox();
+            this.idDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.descriptionDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.timeCreatedDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.todoItemBindingSource = new System.Windows.Forms.BindingSource(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.dgvTodo)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.todoItemBindingSource)).BeginInit();
             this.SuspendLayout();
@@ -49,14 +53,18 @@
             this.dgvTodo.AutoGenerateColumns = false;
             this.dgvTodo.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvTodo.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.idDataGridViewTextBoxColumn,
             this.descriptionDataGridViewTextBoxColumn,
             this.timeCreatedDataGridViewTextBoxColumn});
             this.dgvTodo.DataSource = this.todoItemBindingSource;
             this.dgvTodo.Location = new System.Drawing.Point(13, 41);
+            this.dgvTodo.MultiSelect = false;
             this.dgvTodo.Name = "dgvTodo";
             this.dgvTodo.RowTemplate.Height = 24;
+            this.dgvTodo.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvTodo.Size = new System.Drawing.Size(318, 362);
             this.dgvTodo.TabIndex = 0;
+            this.dgvTodo.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvTodo_CellClick);
             // 
             // btnAdd
             // 
@@ -94,9 +102,38 @@
             this.btnRemove.Text = "Remove";
             this.btnRemove.UseVisualStyleBackColor = true;
             // 
-            // todoItemBindingSource
+            // txtDescription
             // 
-            this.todoItemBindingSource.DataSource = typeof(WfTodo.TodoItem);
+            this.txtDescription.Location = new System.Drawing.Point(338, 41);
+            this.txtDescription.Multiline = true;
+            this.txtDescription.Name = "txtDescription";
+            this.txtDescription.Size = new System.Drawing.Size(327, 140);
+            this.txtDescription.TabIndex = 5;
+            // 
+            // dtpTimeCreated
+            // 
+            this.dtpTimeCreated.Enabled = false;
+            this.dtpTimeCreated.Location = new System.Drawing.Point(465, 187);
+            this.dtpTimeCreated.Name = "dtpTimeCreated";
+            this.dtpTimeCreated.Size = new System.Drawing.Size(200, 22);
+            this.dtpTimeCreated.TabIndex = 6;
+            // 
+            // cbxDone
+            // 
+            this.cbxDone.AutoSize = true;
+            this.cbxDone.Location = new System.Drawing.Point(338, 187);
+            this.cbxDone.Name = "cbxDone";
+            this.cbxDone.Size = new System.Drawing.Size(72, 21);
+            this.cbxDone.TabIndex = 7;
+            this.cbxDone.Text = "Done?";
+            this.cbxDone.UseVisualStyleBackColor = true;
+            // 
+            // idDataGridViewTextBoxColumn
+            // 
+            this.idDataGridViewTextBoxColumn.DataPropertyName = "Id";
+            this.idDataGridViewTextBoxColumn.HeaderText = "Id";
+            this.idDataGridViewTextBoxColumn.Name = "idDataGridViewTextBoxColumn";
+            this.idDataGridViewTextBoxColumn.Visible = false;
             // 
             // descriptionDataGridViewTextBoxColumn
             // 
@@ -110,11 +147,18 @@
             this.timeCreatedDataGridViewTextBoxColumn.HeaderText = "TimeCreated";
             this.timeCreatedDataGridViewTextBoxColumn.Name = "timeCreatedDataGridViewTextBoxColumn";
             // 
+            // todoItemBindingSource
+            // 
+            this.todoItemBindingSource.DataSource = typeof(WfTodo.TodoItem);
+            // 
             // TodoForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(677, 415);
+            this.Controls.Add(this.cbxDone);
+            this.Controls.Add(this.dtpTimeCreated);
+            this.Controls.Add(this.txtDescription);
             this.Controls.Add(this.btnRemove);
             this.Controls.Add(this.btnCancel);
             this.Controls.Add(this.btnSave);
@@ -125,6 +169,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.dgvTodo)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.todoItemBindingSource)).EndInit();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -136,6 +181,10 @@
         private System.Windows.Forms.Button btnCancel;
         private System.Windows.Forms.Button btnRemove;
         private System.Windows.Forms.BindingSource todoItemBindingSource;
+        private System.Windows.Forms.TextBox txtDescription;
+        private System.Windows.Forms.DateTimePicker dtpTimeCreated;
+        private System.Windows.Forms.CheckBox cbxDone;
+        private System.Windows.Forms.DataGridViewTextBoxColumn idDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn descriptionDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn timeCreatedDataGridViewTextBoxColumn;
     }
