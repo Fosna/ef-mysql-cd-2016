@@ -207,3 +207,13 @@ Notice how this connection string is different that connection string from previ
 Data loading API is almost the same as in previous project.
 
 #### 5 Implement rest of todo app functionalities.
+
+
+## Windows Forms TODO application
+
+#### 1 Create Windows Forms TODO application that saves data to internal list
+Project name might be `WfTodo`.
+Note: Side effect of this implementation is that application will reset todo list data on application exit.
+
+#### 2 Upgrade application to save data to database instead of internal list
+Should you use *database first* or *code first* approach?
