@@ -37,6 +37,9 @@
             this.txtDescription = new System.Windows.Forms.TextBox();
             this.dtpTimeCreated = new System.Windows.Forms.DateTimePicker();
             this.cbxDone = new System.Windows.Forms.CheckBox();
+            this.dtpTimeSetToDone = new System.Windows.Forms.DateTimePicker();
+            this.label1 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
             this.idDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.descriptionDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.timeCreatedDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -113,7 +116,7 @@
             // dtpTimeCreated
             // 
             this.dtpTimeCreated.Enabled = false;
-            this.dtpTimeCreated.Location = new System.Drawing.Point(465, 187);
+            this.dtpTimeCreated.Location = new System.Drawing.Point(465, 214);
             this.dtpTimeCreated.Name = "dtpTimeCreated";
             this.dtpTimeCreated.Size = new System.Drawing.Size(200, 22);
             this.dtpTimeCreated.TabIndex = 6;
@@ -127,6 +130,32 @@
             this.cbxDone.TabIndex = 7;
             this.cbxDone.Text = "Done?";
             this.cbxDone.UseVisualStyleBackColor = true;
+            // 
+            // dtpTimeSetToDone
+            // 
+            this.dtpTimeSetToDone.Enabled = false;
+            this.dtpTimeSetToDone.Location = new System.Drawing.Point(465, 242);
+            this.dtpTimeSetToDone.Name = "dtpTimeSetToDone";
+            this.dtpTimeSetToDone.Size = new System.Drawing.Size(200, 22);
+            this.dtpTimeSetToDone.TabIndex = 8;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(362, 219);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(97, 17);
+            this.label1.TabIndex = 9;
+            this.label1.Text = "Time Created:";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(335, 247);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(127, 17);
+            this.label2.TabIndex = 10;
+            this.label2.Text = "Time Set To Done:";
             // 
             // idDataGridViewTextBoxColumn
             // 
@@ -156,6 +185,9 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(677, 415);
+            this.Controls.Add(this.label2);
+            this.Controls.Add(this.label1);
+            this.Controls.Add(this.dtpTimeSetToDone);
             this.Controls.Add(this.cbxDone);
             this.Controls.Add(this.dtpTimeCreated);
             this.Controls.Add(this.txtDescription);
@@ -187,6 +219,9 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn idDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn descriptionDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn timeCreatedDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DateTimePicker dtpTimeSetToDone;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label label2;
     }
 }
 

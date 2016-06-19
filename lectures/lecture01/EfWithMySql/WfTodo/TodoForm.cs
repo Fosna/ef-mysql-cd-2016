@@ -33,8 +33,8 @@ namespace WfTodo
             var thirdTodo = new TodoItem();
             thirdTodo.Id = 3;
             thirdTodo.Description = "third";
-            thirdTodo.TimeCreated = DateTime.Now;
-            thirdTodo.TimeSetToDone = DateTime.Now;
+            thirdTodo.TimeCreated = DateTime.Now.AddDays(-2);
+            thirdTodo.TimeSetToDone = DateTime.Now.AddDays(-1);
 
             TodoItemList = new List<TodoItem>();
             TodoItemList.Add(firstTodo);
@@ -56,6 +56,16 @@ namespace WfTodo
                 txtDescription.Text = selectedTodo.Description;
                 cbxDone.Checked = selectedTodo.TimeSetToDone.HasValue;
                 dtpTimeCreated.Value = selectedTodo.TimeCreated;
+                if (selectedTodo.TimeSetToDone.HasValue)
+                {
+                    dtpTimeSetToDone.Value = selectedTodo.TimeSetToDone.Value;
+                    dtpTimeSetToDone.Visible = true;
+                }
+                else
+                {
+                    dtpTimeSetToDone.Visible = false;
+                }
+                
             }
         }
     }
