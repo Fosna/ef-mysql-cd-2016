@@ -46,6 +46,11 @@ namespace WfTodo
 
         private void dgvTodo_CellClick(object sender, DataGridViewCellEventArgs e)
         {
+            ShowTodoItemDetails();
+        }
+
+        private void ShowTodoItemDetails()
+        {
             int id;
             if (TryGetSelectedId(out id))
             {
@@ -116,6 +121,16 @@ namespace WfTodo
             {
                 return true;
             }
+        }
+
+        private void btnCancel_Click(object sender, EventArgs e)
+        {
+            ShowTodoItemDetails();
+        }
+
+        private void TodoForm_Load(object sender, EventArgs e)
+        {
+            ShowTodoItemDetails();
         }
     }
 }

@@ -60,6 +60,7 @@
             this.descriptionDataGridViewTextBoxColumn,
             this.timeCreatedDataGridViewTextBoxColumn});
             this.dgvTodo.DataSource = this.todoItemBindingSource;
+            this.dgvTodo.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically;
             this.dgvTodo.Location = new System.Drawing.Point(13, 41);
             this.dgvTodo.MultiSelect = false;
             this.dgvTodo.Name = "dgvTodo";
@@ -96,6 +97,7 @@
             this.btnCancel.TabIndex = 3;
             this.btnCancel.Text = "Cancel";
             this.btnCancel.UseVisualStyleBackColor = true;
+            this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
             // 
             // btnRemove
             // 
@@ -154,9 +156,9 @@
             this.label2.AutoSize = true;
             this.label2.Location = new System.Drawing.Point(335, 247);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(127, 17);
+            this.label2.Size = new System.Drawing.Size(122, 17);
             this.label2.TabIndex = 10;
-            this.label2.Text = "Time Set To Done:";
+            this.label2.Text = "Time Set to Done:";
             // 
             // idDataGridViewTextBoxColumn
             // 
@@ -199,6 +201,7 @@
             this.Controls.Add(this.dgvTodo);
             this.Name = "TodoForm";
             this.Text = "Todo";
+            this.Load += new System.EventHandler(this.TodoForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvTodo)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.todoItemBindingSource)).EndInit();
             this.ResumeLayout(false);
