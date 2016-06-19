@@ -18,6 +18,7 @@ namespace WfTodo
         {
             InitializeComponent();
 
+            // Seed todo items.
             var firstTodo = new TodoItem();
             firstTodo.Id = 1;
             firstTodo.Description = "first";
@@ -37,6 +38,8 @@ namespace WfTodo
             TodoItemList.Add(firstTodo);
             TodoItemList.Add(secondTodo);
             TodoItemList.Add(thirdTodo);
+
+            dgvTodo.DataSource = TodoItemList;
         }
     }
 }
