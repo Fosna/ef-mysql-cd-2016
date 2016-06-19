@@ -99,6 +99,9 @@
     </None>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Help.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
     <Content Include="SqlScripts\02_GenModelFix .sql" />
     <Content Include="SqlScripts\01_Init.sql" />
     <Content Include="SqlScripts\03_TimeDeactivated.sql" />

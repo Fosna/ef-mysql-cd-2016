@@ -50,7 +50,10 @@ namespace EfFirstContact
                 {
                     app.RemoveAll();
                 }
-                else
+                // Code review: This message get's displayed when exit commend is issued. That was a bug. This is fix. 
+                
+                // This should be last command check. 
+                else if (commandText != "exit")
                 {
                     Console.WriteLine("Unknown message has been entered!");
                     WriteHelp();
@@ -64,16 +67,15 @@ namespace EfFirstContact
         {
             try
             {
-                StreamReader sr;
-                string path = "Help.txt";
-                sr = new StreamReader(path);
-                string row = "";
-                while ((row = sr.ReadLine()) != null)
+                // Code review: Don't forget to close file after you read it. It saves memory. With "using" statement Close instruction is automatically issued at the end of using block. 
+                // Code review: Help file should be included in solution. Build action for this file should be set to "copy if newer".
+                using (var sr = new StreamReader("Help.txt"))
                 {
-                    Console.WriteLine(row);
+                    Console.WriteLine(sr.ReadToEnd());
                 }
             }
-            catch (Exception)
+            // Code review: Try to get more expecific exception.
+            catch (IOException)
             {
                 Console.Write("There is no help!");
             }
