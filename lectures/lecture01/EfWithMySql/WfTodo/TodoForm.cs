@@ -49,27 +49,46 @@ namespace WfTodo
             int id;
             if (TryGetSelectedId(out id))
             {
-                var selectedTodo = TodoItemList.Single(x => x.Id == id);
-
-                txtDescription.Text = selectedTodo.Description;
-                cbxDone.Checked = selectedTodo.TimeSetToDone.HasValue;
-                dtpTimeCreated.Value = selectedTodo.TimeCreated;
-                if (selectedTodo.TimeSetToDone.HasValue)
+                TodoItem selectedTodo;
+                if (TryGetSelectedTodoById(id, out selectedTodo))
                 {
-                    dtpTimeSetToDone.Value = selectedTodo.TimeSetToDone.Value;
-                    dtpTimeSetToDone.Visible = true;
+                    txtDescription.Text = selectedTodo.Description;
+                    cbxDone.Checked = selectedTodo.TimeSetToDone.HasValue;
+                    dtpTimeCreated.Value = selectedTodo.TimeCreated;
+                    if (selectedTodo.TimeSetToDone.HasValue)
+                    {
+                        dtpTimeSetToDone.Value = selectedTodo.TimeSetToDone.Value;
+                        dtpTimeSetToDone.Visible = true;
+                    }
+                    else
+                    {
+                        dtpTimeSetToDone.Visible = false;
+                    }
                 }
-                else
-                {
-                    dtpTimeSetToDone.Visible = false;
-                }
-
             }
         }
 
         private void btnSave_Click(object sender, EventArgs e)
         {
+            int id;
+            if (TryGetSelectedId(out id))
+            {
+                TodoItem selectedTodo;
+                if (TryGetSelectedTodoById(id, out selectedTodo))
+                {
+                    selectedTodo.Description = txtDescription.Text.Trim();
+                    if (cbxDone.Checked)
+                    {
+                        selectedTodo.TimeSetToDone = DateTime.Now;
+                    }
+                    else
+                    {
+                        selectedTodo.TimeSetToDone = null;
+                    }
 
+                    MessageBox.Show("Todo item saved.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+            }
         }
 
         private bool TryGetSelectedId(out int id)
@@ -83,6 +102,20 @@ namespace WfTodo
 
             id = default(int);
             return false;
+        }
+
+        private bool TryGetSelectedTodoById(int id, out TodoItem selectedTodo)
+        {
+            selectedTodo = TodoItemList.SingleOrDefault(x => x.Id == id);
+
+            if (selectedTodo == null)
+            {
+                return false;
+            }
+            else
+            {
+                return true;
+            }
         }
     }
 }
