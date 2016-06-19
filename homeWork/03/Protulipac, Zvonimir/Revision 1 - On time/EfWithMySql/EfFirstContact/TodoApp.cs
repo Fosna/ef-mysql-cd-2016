@@ -107,7 +107,8 @@ namespace EfFirstContact
 
         internal void RemoveAll()
         {
-            var todoItems = this.db.todoitem.ToList();
+            // Code review: Only active items should be deactivated. Otherwise time deactivated is corrupt for items that are already deactivated.
+            var todoItems = this.db.todoitem.Where(x => x.TimeDeactivated == null).ToList();
             foreach (var deleteMe in todoItems)
             {
                 if (deleteMe.TimeDeactivated.HasValue == false)
