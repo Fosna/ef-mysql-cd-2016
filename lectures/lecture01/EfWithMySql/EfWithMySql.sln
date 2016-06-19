@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EfFirstContact", "EfFirstCo
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EfCodeFirstTodo", "EfCodeFirstTodo\EfCodeFirstTodo.csproj", "{FD7A871A-D768-4169-A90B-AFA837A11DAD}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WfTodo", "WfTodo\WfTodo.csproj", "{EBFD3726-7AC6-49EB-A827-EEFF02CE4571}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{FD7A871A-D768-4169-A90B-AFA837A11DAD}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{FD7A871A-D768-4169-A90B-AFA837A11DAD}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{FD7A871A-D768-4169-A90B-AFA837A11DAD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EBFD3726-7AC6-49EB-A827-EEFF02CE4571}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EBFD3726-7AC6-49EB-A827-EEFF02CE4571}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EBFD3726-7AC6-49EB-A827-EEFF02CE4571}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EBFD3726-7AC6-49EB-A827-EEFF02CE4571}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
