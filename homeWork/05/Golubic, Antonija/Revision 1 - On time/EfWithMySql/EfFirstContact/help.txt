@@ -1,0 +1,9 @@
+﻿
+list - Write todo items.
+add - Add new todo item.
+done - Mark todo item as done.
+undone - Mark todo item as undone.
+remove - Remove todo item from list.
+remove all - Remove all todo items from list.
+help - Show this message.
+exit - Exit program.
