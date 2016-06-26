@@ -217,3 +217,11 @@ Note: Side effect of this implementation is that application will reset todo lis
 
 #### 2 Upgrade application to save data to database instead of internal list
 Should you use *database first* or *code first* approach?
+
+
+## Entity Framework queries
+
+#### 1 Create console application named `EfQueries`
+
+#### 2 Add create schema and data scripts to `SqlScripts` folder
+Grab scripts from project in this commit.
