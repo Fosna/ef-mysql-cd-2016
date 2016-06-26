@@ -211,17 +211,22 @@ Data loading API is almost the same as in previous project.
 
 ## Windows Forms TODO application
 
-#### 1 Create Windows Forms TODO application that saves data to internal list
+#### 1 Create Windows Forms TODO application that saves data to internal list.
 Project name might be `WfTodo`.
 Note: Side effect of this implementation is that application will reset todo list data on application exit.
 
-#### 2 Upgrade application to save data to database instead of internal list
+#### 2 Upgrade application to save data to database instead of internal list.
 Should you use *database first* or *code first* approach?
 
 
 ## Entity Framework queries
 
-#### 1 Create console application named `EfQueries`
+#### 1 Create console application named `EfQueries`.
 
-#### 2 Add create schema and data scripts to `SqlScripts` folder
+#### 2 Add create schema and data scripts to `SqlScripts` folder.
 Grab scripts from project in this commit.
+
+#### 3 Execute scripts to create database.
+
+#### 4 Use database first approach to create `SchoolModel`.
+Check if connection to the database can be made. It's up to you, how to check it.
