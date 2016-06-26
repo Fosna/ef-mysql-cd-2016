@@ -10,7 +10,9 @@ namespace EfQueries
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("monkey");
+            var db = new SchoolEntities();
+            var isAnyStudent = db.student.Any();
+            Console.WriteLine(isAnyStudent);
         }
     }
 }
