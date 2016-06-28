@@ -115,6 +115,7 @@ namespace _01ponavljanje
             Console.WriteLine("Todo item has been added.");
         }
 
+        // Code review: Consider following convention like in int.TryParse(string intText, out int). Suggested method signature: bool TryGetTodoItem(int itemId, out todoitem). Throwing exceptions won't be necessary then.
         public todoitem TryGetTodoItem(int itemId)
         {
             todoitem td = new todoitem();

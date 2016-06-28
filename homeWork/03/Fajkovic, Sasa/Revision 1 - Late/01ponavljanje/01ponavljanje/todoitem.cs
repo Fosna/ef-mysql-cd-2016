@@ -16,6 +16,7 @@ namespace _01ponavljanje
     using System.Linq;
     public partial class todoitem
     {
+        // Code review: Consider extracting static properties and methods to TodoItemRepository class. Should do it for every database management operation like TodoApp.SetDone(). Static database context isn't a good idea in general. However it works ok if there is only one table in database.
         private static TodoEntities db;
 
         public todoitem()
@@ -32,6 +33,9 @@ namespace _01ponavljanje
 
         public static void undoneTodoItem(todoitem ti)
         {
+            // Code review. There is no change in database if actual value isn't set.
+            ti.TimeSetToDone = null;
+
             db.todoitem.Attach(ti);
 
             var entry = db.Entry(ti);
@@ -46,6 +50,8 @@ namespace _01ponavljanje
 
         public static void removeTodoItem(todoitem ti)
         {
+            // Code review: That's beyond basic EF update technique. Please present it during next lecture.
+
             ti.TimeDeactivated = DateTime.Now;
             db.todoitem.Attach(ti);
 

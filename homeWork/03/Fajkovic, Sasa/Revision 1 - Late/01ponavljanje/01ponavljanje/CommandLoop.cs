@@ -32,7 +32,7 @@ namespace _01ponavljanje
                 {
                     app.SetDone();
                 }
-                
+
                 else if (commandText == "remove")
                 {
                     todoitem item = new todoitem();
@@ -41,18 +41,32 @@ namespace _01ponavljanje
                     try
                     {
                         item = app.TryGetTodoItem(int.Parse(Console.ReadLine().Trim().ToLower()));
-
                     }
-                    catch (Exception)
+                    // Code review: It's not a good practice to catch every exception. Only really expected exception should be handled. Perhaps one of int.Parse exceptions (FormatException, OverflowException) or ArgumentException that can be raised from TryGetTodoItem.
+                    // Consider using int.TryParse() instead of int.Parse. This crazy exception handling won't be needed.
+                    catch (OverflowException)
                     {
                         Console.WriteLine("Invalid ID number.");
-                        return;
                     }
+                    catch (FormatException)
+                    {
+                        Console.WriteLine("Invalid ID number.");
+                    }
+                    catch (ArgumentException)
+                    {
+                        Console.WriteLine("Invalid ID number.");
+                    }
+                    //catch (Exception)
+                    //{
+                    //    Console.WriteLine("Invalid ID number.");
+                    //    // Code review: No need to terminate application. Give user ability to enter another command.
+                    //    //return;
+                    //}
 
                     todoitem.removeTodoItem(item);
 
                 }
-                
+
                 else if (commandText == "undone")
                 {
                     todoitem item = new todoitem();
@@ -73,7 +87,9 @@ namespace _01ponavljanje
                 {
                     app.RemoveAllToDoItems();
                 }
-                else
+                // Code review: exit command writes 'Unsupported command...' text to console. This is suggested fix.
+                //else 
+                else if (commandText != "exit")
                 {
                     Console.Clear();
                     Console.WriteLine("Unsupported command. " + Environment.NewLine + "Type \"help\" to see a list of available commands");
@@ -82,6 +98,7 @@ namespace _01ponavljanje
             } while (commandText != "exit");
         }
 
+        // Code review: Help file should be included in solution. Build action should be copy if newer.
         private void WriteHelp()
         {
             Console.Clear();
