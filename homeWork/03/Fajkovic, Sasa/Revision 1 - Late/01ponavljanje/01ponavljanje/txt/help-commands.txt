@@ -1,0 +1,8 @@
+list - List all todo items
+add - Add new todo item
+done - Mark todo item as done
+undone - Move item back to Todo list
+remove - Remove todo item from list
+remove-all - Removes all items from the list
+help - Get medical assistance 112
+exit - Exit program
