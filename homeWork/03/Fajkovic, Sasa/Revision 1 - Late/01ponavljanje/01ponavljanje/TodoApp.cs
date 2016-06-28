@@ -129,7 +129,9 @@ namespace _01ponavljanje
 
         public void RemoveAllToDoItems()
         {
-            var allItems = db.todoitem.ToList();
+            // Code review: Should remove only items that aren't already deactivated.
+            //var allItems = db.todoitem.ToList();
+            var allItems = db.todoitem.Where(x => x.TimeDeactivated.HasValue == false).ToList();
 
             foreach (var item in allItems)
             {
