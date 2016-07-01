@@ -55,7 +55,22 @@ namespace LinqExercise
 
             UseExtensionToFindStudentByName();
 
-            LinqQuerySyntax();
+            UseMethodSyntaxToFindTeenageStudents();
+            UseLinqQuerySyntaxToFindTeenageStudents();
+        }
+
+        private static void UseMethodSyntaxToFindTeenageStudents()
+        {
+            Console.WriteLine();
+            Console.WriteLine();
+            Console.WriteLine();
+            Console.WriteLine($"******* {nameof(Program.UseMethodSyntaxToFindTeenageStudents)}");
+
+            List<Student> students = GetSomeStudents();
+
+            List<Student> filteredStudents = students.Where(student => student.Age > 12 && student.Age < 20).ToList();
+
+            Console.WriteLine(filteredStudents.DumpJson());
         }
 
         private static void UseExtensionToFindStudentByName()
@@ -139,7 +154,7 @@ namespace LinqExercise
             Console.WriteLine();
             Console.WriteLine();
             Console.WriteLine();
-            Console.WriteLine("******* UseFunctionFindTeenageStudents");
+            Console.WriteLine($"******* {nameof(Program.UseFunctionToFindTeenageStudents)}");
 
             List<Student> students = GetSomeStudents();
 
@@ -172,7 +187,7 @@ namespace LinqExercise
             Console.WriteLine();
             Console.WriteLine();
             Console.WriteLine();
-            Console.WriteLine("******* UseFunctionToFindStudentByName");
+            Console.WriteLine($"******* {nameof(Program.UseFunctionToFindStudentByName)}");
 
             List<Student> students = GetSomeStudents();
 
@@ -208,7 +223,7 @@ namespace LinqExercise
             Console.WriteLine();
             Console.WriteLine();
             Console.WriteLine();
-            Console.WriteLine("******* UseLoopToFindElements");
+            Console.WriteLine($"******* {nameof(Program.UseLoopToFindElements)}");
 
             List<Student> students = GetSomeStudents(); 
 
@@ -224,12 +239,12 @@ namespace LinqExercise
             Console.WriteLine(filteredStudents.DumpJson());
         }
 
-        private static void LinqQuerySyntax()
+        private static void UseLinqQuerySyntaxToFindTeenageStudents()
         {
             Console.WriteLine();
             Console.WriteLine();
             Console.WriteLine();
-            Console.WriteLine("******* LinqQuerySyntax");
+            Console.WriteLine($"******* {nameof(Program.UseLinqQuerySyntaxToFindTeenageStudents)}");
 
             // Student collection
             IList<Student> studentList = new List<Student>()
