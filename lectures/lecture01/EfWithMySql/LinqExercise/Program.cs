@@ -12,7 +12,46 @@ namespace LinqExercise
         static void Main(string[] args)
         {
             UseLoopToFindElements();
+            UseFunctionToFindStudentByName();
+            UseFunctionFindTeenageStudents();
             LinqQuerySyntax();
+        }
+
+        private static void UseFunctionFindTeenageStudents()
+        {
+            Console.WriteLine();
+            Console.WriteLine();
+            Console.WriteLine();
+            Console.WriteLine("******* UseFunctionFindTeenageStudents");
+
+            throw new NotImplementedException();
+        }
+
+        private static bool IsNameMatch(Student student, string studentName)
+        {
+            bool isMatch = student.StudentName.ToUpper() == studentName.ToUpper();
+            return isMatch;
+        }
+
+        private static void UseFunctionToFindStudentByName()
+        {
+            Console.WriteLine();
+            Console.WriteLine();
+            Console.WriteLine();
+            Console.WriteLine("******* UseFunctionToFindStudentByName");
+
+            List<Student> students = GetSomeStudents();
+
+            List<Student> filteredStudents = new List<Student>();
+            foreach (var student in students)
+            {
+                if (IsNameMatch(student, "Rob"))
+                {
+                    filteredStudents.Add(student);
+                }
+            }
+
+            Console.WriteLine(filteredStudents.DumpJson());
         }
 
         private static List<Student> GetSomeStudents()
