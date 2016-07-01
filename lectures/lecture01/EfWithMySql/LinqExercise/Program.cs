@@ -32,7 +32,23 @@ namespace LinqExercise
             UseFunctionToFindStudentByName();
             UseFunctionToFindTeenageStudents();
             UseDelegateToFindTeenageStudnets();
+            UseLambdaToFindTeenageStudnets();
             LinqQuerySyntax();
+        }
+
+        private static void UseLambdaToFindTeenageStudnets()
+        {
+            Console.WriteLine();
+            Console.WriteLine();
+            Console.WriteLine();
+            Console.WriteLine("******* UseDelegateToFindTeenageStudnets");
+
+            List<Student> students = GetSomeStudents();
+
+            List<Student> filteredStudents = StudentExtensions.Where(students, 
+                student => student.Age > 12 && student.Age < 20);
+
+            Console.WriteLine(filteredStudents.DumpJson());
         }
 
         private static void UseDelegateToFindTeenageStudnets()
