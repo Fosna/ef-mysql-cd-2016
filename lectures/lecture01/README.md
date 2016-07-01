@@ -228,5 +228,5 @@ Grab scripts from project in this commit.
 
 #### 3 Execute scripts to create database.
 
-#### 4 Use database first approach to create `SchoolModel`.
+#### 4 Use database first approach to create `SchoolModel` DbContext.
 Check if connection to the database can be made. It's up to you, how to check it.
