@@ -57,6 +57,40 @@ namespace LinqExercise
 
             UseMethodSyntaxToFindTeenageStudents();
             UseLinqQuerySyntaxToFindTeenageStudents();
+
+            SaveFunctionInVariable();
+        }
+
+        private static void SaveFunctionInVariable()
+        {
+            Func<int, int, int> binaryFunc;
+            int a = 1;
+            int b = 2;
+
+            int res = Add(a, b);
+            Console.WriteLine("Add: {0}", res);
+
+            binaryFunc = Add;
+            res = binaryFunc(a, b);
+            Console.WriteLine("Add with delegate: {0}", res);
+
+            binaryFunc = Substract;
+            res = binaryFunc(a, b);
+            Console.WriteLine("Substract with delegate: {0}", res);
+
+            binaryFunc = (x, y) => x + y;
+            res = binaryFunc(a, b);
+            Console.WriteLine("Add with lambda: {0}", res);
+        }
+
+        private static int Add(int a, int b)
+        {
+            return a + b;
+        }
+
+        private static int Substract(int a, int b)
+        {
+            return a - b;
         }
 
         private static void UseMethodSyntaxToFindTeenageStudents()
