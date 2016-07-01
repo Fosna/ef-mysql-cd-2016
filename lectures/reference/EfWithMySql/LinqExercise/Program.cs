@@ -1,4 +1,4 @@
-﻿using SweetStuff;
+﻿using SweetStuff.Dump;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -24,24 +24,46 @@ namespace LinqExercise
         }
     }
 
+    class StudentNameFilter
+    {
+        private string _name;
+
+        public StudentNameFilter(string name)
+        {
+            _name = name;
+        }
+
+        public bool IsNameMatch(Student student)
+        {
+            bool isMatch = student.StudentName == _name;
+            return isMatch;
+        }
+    }
+
     class Program
     {
         static void Main(string[] args)
         {
             UseLoopToFindElements();
+
             UseFunctionToFindStudentByName();
             UseFunctionToFindTeenageStudents();
-            UseDelegateToFindTeenageStudnets();
-            UseLambdaToFindTeenageStudnets();
+
+            UseDelegateToFindStudentByName();
+            UseDelegateToFindTeenageStudents();
+
+            UseLambdaToFindTeenageStudents();
+
+
             LinqQuerySyntax();
         }
 
-        private static void UseLambdaToFindTeenageStudnets()
+        private static void UseLambdaToFindTeenageStudents()
         {
             Console.WriteLine();
             Console.WriteLine();
             Console.WriteLine();
-            Console.WriteLine("******* UseDelegateToFindTeenageStudnets");
+            Console.WriteLine($"******* {nameof(Program.UseLambdaToFindTeenageStudents)}");
 
             List<Student> students = GetSomeStudents();
 
@@ -51,12 +73,28 @@ namespace LinqExercise
             Console.WriteLine(filteredStudents.DumpJson());
         }
 
-        private static void UseDelegateToFindTeenageStudnets()
+        private static void UseDelegateToFindStudentByName()
         {
             Console.WriteLine();
             Console.WriteLine();
             Console.WriteLine();
-            Console.WriteLine("******* UseDelegateToFindTeenageStudnets");
+            Console.WriteLine($"******* {nameof(Program.UseDelegateToFindStudentByName)}");
+
+            List<Student> students = GetSomeStudents();
+
+            var filter = new StudentNameFilter("Rob");
+            List<Student> filteredStudents = StudentExtensions.Where(students, filter.IsNameMatch);
+
+            Console.WriteLine(filteredStudents.DumpJson());
+
+        }
+
+        private static void UseDelegateToFindTeenageStudents()
+        {
+            Console.WriteLine();
+            Console.WriteLine();
+            Console.WriteLine();
+            Console.WriteLine($"******* {nameof(Program.UseDelegateToFindTeenageStudents)}");
 
             List<Student> students = GetSomeStudents();
 
