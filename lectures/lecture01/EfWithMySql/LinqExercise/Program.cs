@@ -7,24 +7,73 @@ using System.Threading.Tasks;
 
 namespace LinqExercise
 {
+    static class StudentExtensions
+    {
+        public static List<Student> Where(List<Student> students, Func<Student, bool> condition)
+        {
+            List<Student> filteredStudents = new List<Student>();
+            foreach (var student in students)
+            {
+                if (condition(student))
+                {
+                    filteredStudents.Add(student);
+                }
+            }
+
+            return filteredStudents;
+        }
+    }
+
     class Program
     {
         static void Main(string[] args)
         {
             UseLoopToFindElements();
             UseFunctionToFindStudentByName();
-            UseFunctionFindTeenageStudents();
+            UseFunctionToFindTeenageStudents();
+            UseDelegateToFindTeenageStudnets();
             LinqQuerySyntax();
         }
 
-        private static void UseFunctionFindTeenageStudents()
+        private static void UseDelegateToFindTeenageStudnets()
+        {
+            Console.WriteLine();
+            Console.WriteLine();
+            Console.WriteLine();
+            Console.WriteLine("******* UseDelegateToFindTeenageStudnets");
+
+            List<Student> students = GetSomeStudents();
+
+            List<Student> filteredStudents = StudentExtensions.Where(students, IsTeenager);
+
+            Console.WriteLine(filteredStudents.DumpJson());
+        }
+
+        private static void UseFunctionToFindTeenageStudents()
         {
             Console.WriteLine();
             Console.WriteLine();
             Console.WriteLine();
             Console.WriteLine("******* UseFunctionFindTeenageStudents");
 
-            throw new NotImplementedException();
+            List<Student> students = GetSomeStudents();
+
+            List<Student> filteredStudents = new List<Student>();
+            foreach (var student in students)
+            {
+                if (IsTeenager(student))
+                {
+                    filteredStudents.Add(student);
+                }
+            }
+
+            Console.WriteLine(filteredStudents.DumpJson());
+        }
+
+        private static bool IsTeenager(Student student)
+        {
+            bool isTeenager = student.Age > 12 && student.Age < 20;
+            return isTeenager;
         }
 
         private static bool IsNameMatch(Student student, string studentName)
