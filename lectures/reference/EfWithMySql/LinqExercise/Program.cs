@@ -59,10 +59,31 @@ namespace LinqExercise
             UseLinqQuerySyntaxToFindTeenageStudents();
 
             SaveFunctionInVariable();
+
+            ShowStudentsByAgeDescending();
+        }
+
+        private static void ShowStudentsByAgeDescending()
+        {
+            Console.WriteLine();
+            Console.WriteLine();
+            Console.WriteLine();
+            Console.WriteLine($"******* {nameof(Program.ShowStudentsByAgeDescending)}");
+
+            List<Student> students = GetSomeStudents();
+
+            List<Student> sortedStudents = students.OrderByDescending(x => x.Age).ToList();
+
+            Console.WriteLine(sortedStudents.DumpJson());
         }
 
         private static void SaveFunctionInVariable()
         {
+            Console.WriteLine();
+            Console.WriteLine();
+            Console.WriteLine();
+            Console.WriteLine($"******* {nameof(Program.SaveFunctionInVariable)}");
+
             Func<int, int, int> binaryFunc;
             int a = 1;
             int b = 2;
