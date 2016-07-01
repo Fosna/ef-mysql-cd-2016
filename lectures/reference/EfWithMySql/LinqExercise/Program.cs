@@ -2,14 +2,12 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace LinqExercise
 {
     static class StudentExtensions
     {
-        public static List<Student> Where(List<Student> students, Func<Student, bool> condition)
+        public static List<Student> Filter(this List<Student> students, Func<Student, bool> condition)
         {
             List<Student> filteredStudents = new List<Student>();
             foreach (var student in students)
@@ -55,8 +53,24 @@ namespace LinqExercise
             UseLambdaToFindStudentByName();
             UseLambdaToFindTeenageStudents();
 
+            UseExtensionToFindStudentByName();
 
             LinqQuerySyntax();
+        }
+
+        private static void UseExtensionToFindStudentByName()
+        {
+            Console.WriteLine();
+            Console.WriteLine();
+            Console.WriteLine();
+            Console.WriteLine($"******* {nameof(Program.UseExtensionToFindStudentByName)}");
+
+
+            List<Student> students = GetSomeStudents();
+
+            List<Student> filteredStudents = students.Filter(student => student.StudentName == "Rob");
+
+            Console.WriteLine(filteredStudents.DumpJson());
         }
 
         private static void UseLambdaToFindStudentByName()
@@ -69,11 +83,10 @@ namespace LinqExercise
 
             List<Student> students = GetSomeStudents();
 
-            List<Student> filteredStudents = StudentExtensions.Where(students,
+            List<Student> filteredStudents = StudentExtensions.Filter(students,
                 student => student.StudentName == "Rob");
 
             Console.WriteLine(filteredStudents.DumpJson());
-
         }
 
         private static void UseLambdaToFindTeenageStudents()
@@ -85,7 +98,7 @@ namespace LinqExercise
 
             List<Student> students = GetSomeStudents();
 
-            List<Student> filteredStudents = StudentExtensions.Where(students, 
+            List<Student> filteredStudents = StudentExtensions.Filter(students, 
                 student => student.Age > 12 && student.Age < 20);
 
             Console.WriteLine(filteredStudents.DumpJson());
@@ -101,7 +114,7 @@ namespace LinqExercise
             List<Student> students = GetSomeStudents();
 
             var filter = new StudentNameFilter("Rob");
-            List<Student> filteredStudents = StudentExtensions.Where(students, filter.IsNameMatch);
+            List<Student> filteredStudents = StudentExtensions.Filter(students, filter.IsNameMatch);
 
             Console.WriteLine(filteredStudents.DumpJson());
 
@@ -116,7 +129,7 @@ namespace LinqExercise
 
             List<Student> students = GetSomeStudents();
 
-            List<Student> filteredStudents = StudentExtensions.Where(students, IsTeenager);
+            List<Student> filteredStudents = StudentExtensions.Filter(students, IsTeenager);
 
             Console.WriteLine(filteredStudents.DumpJson());
         }
