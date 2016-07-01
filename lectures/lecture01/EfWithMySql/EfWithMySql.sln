@@ -11,6 +11,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WfTodo", "WfTodo\WfTodo.csp
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EfQueries", "EfQueries\EfQueries.csproj", "{63EAFAA1-D42C-4D2A-A550-6F1BC78D908F}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LinqExercise", "LinqExercise\LinqExercise.csproj", "{74095BFD-E003-4056-BACD-5FD625C6C438}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SweetStuff", "SweetStuff\SweetStuff.csproj", "{1E712ACC-F52D-4060-897F-BCFA50EE9235}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -33,6 +37,14 @@ Global
 		{63EAFAA1-D42C-4D2A-A550-6F1BC78D908F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{63EAFAA1-D42C-4D2A-A550-6F1BC78D908F}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{63EAFAA1-D42C-4D2A-A550-6F1BC78D908F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{74095BFD-E003-4056-BACD-5FD625C6C438}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{74095BFD-E003-4056-BACD-5FD625C6C438}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{74095BFD-E003-4056-BACD-5FD625C6C438}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{74095BFD-E003-4056-BACD-5FD625C6C438}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1E712ACC-F52D-4060-897F-BCFA50EE9235}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1E712ACC-F52D-4060-897F-BCFA50EE9235}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1E712ACC-F52D-4060-897F-BCFA50EE9235}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1E712ACC-F52D-4060-897F-BCFA50EE9235}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

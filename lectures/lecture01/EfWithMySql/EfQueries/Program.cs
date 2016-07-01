@@ -10,6 +10,11 @@ namespace EfQueries
     {
         static void Main(string[] args)
         {
+            TestSchoolDbAccess();
+        }
+
+        private static void TestSchoolDbAccess()
+        {
             var db = new SchoolEntities();
             var isAnyStudent = db.student.Any();
             Console.WriteLine(isAnyStudent);
