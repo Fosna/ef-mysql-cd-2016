@@ -15,14 +15,9 @@ namespace LinqExercise
             LinqQuerySyntax();
         }
 
-        private static void UseLoopToFindElements()
+        private static List<Student> GetSomeStudents()
         {
-            Console.WriteLine();
-            Console.WriteLine();
-            Console.WriteLine();
-            Console.WriteLine("******* UseLoopToFindElements");
-
-            Student[] studentArray = 
+            var students = new List<Student>
             {
                 new Student() { StudentID = 1, StudentName = "John", Age = 18 },
                 new Student() { StudentID = 2, StudentName = "Steve", Age = 21 },
@@ -32,11 +27,20 @@ namespace LinqExercise
                 new Student() { StudentID = 6, StudentName = "Chris", Age = 17 },
                 new Student() { StudentID = 7, StudentName = "Rob", Age = 19  },
             };
+            return students;
+        }
 
-            Student[] students = new Student[10];
+        private static void UseLoopToFindElements()
+        {
+            Console.WriteLine();
+            Console.WriteLine();
+            Console.WriteLine();
+            Console.WriteLine("******* UseLoopToFindElements");
+
+            List<Student> students = GetSomeStudents(); 
 
             var filteredStudents = new List<Student>();
-            foreach (Student std in studentArray)
+            foreach (Student std in students)
             {
                 if (std.Age > 12 && std.Age < 20)
                 {
