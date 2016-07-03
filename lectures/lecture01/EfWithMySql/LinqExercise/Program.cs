@@ -9,7 +9,7 @@ namespace LinqExercise
 {
     static class StudentExtensions
     {
-        public static List<Student> Where(List<Student> students, Func<Student, bool> condition)
+        public static List<Student> Filter(this List<Student> students, Func<Student, bool> condition)
         {
             List<Student> filteredStudents = new List<Student>();
             foreach (var student in students)
@@ -29,11 +29,76 @@ namespace LinqExercise
         static void Main(string[] args)
         {
             UseLoopToFindElements();
+
             UseFunctionToFindStudentByName();
             UseFunctionToFindTeenageStudents();
+
             UseDelegateToFindTeenageStudnets();
+
             UseLambdaToFindTeenageStudnets();
+
+            UseExtensionToFindTeenageStudents();
+
+            SaveFunctionInVariable();
+
             LinqQuerySyntax();
+        }
+
+        private static void UseExtensionToFindTeenageStudents()
+        {
+            Console.WriteLine();
+            Console.WriteLine();
+            Console.WriteLine();
+            Console.WriteLine("******* UseExtensionToFindTeenageStudents");
+
+            List<Student> students = GetSomeStudents();
+
+            //List<Student> filteredStudents = 
+            //    StudentExtensions.Filter(
+            //        StudentExtensions.Filter(students, student => student.Age > 12 && student.Age < 20),
+            //        student => student.StudentName == "John"
+            //    );
+
+            List<Student> filteredStudents = students.Filter(student => student.Age > 12 && student.Age < 20).Filter(s => s.StudentName == "John");
+
+            Console.WriteLine(filteredStudents.DumpJson());
+        }
+
+        private static void SaveFunctionInVariable()
+        {
+            Console.WriteLine();
+            Console.WriteLine();
+            Console.WriteLine();
+            Console.WriteLine($"******* {nameof(Program.SaveFunctionInVariable)}");
+
+            Func<int, int, int> binaryFunc;
+            int a = 1;
+            int b = 2;
+
+            int res = Add(a, b);
+            Console.WriteLine("Add: {0}", res);
+
+            binaryFunc = Add;
+            res = binaryFunc(a, b);
+            Console.WriteLine("Add with delegate: {0}", res);
+
+            binaryFunc = Substract;
+            res = binaryFunc(a, b);
+            Console.WriteLine("Substract with delegate: {0}", res);
+
+            binaryFunc = (x, y) => x + y;
+            res = binaryFunc(a, b);
+            Console.WriteLine("Add with lambda: {0}", res);
+        }
+
+        private static int Substract(int a, int b)
+        {
+            return a - b;
+        }
+
+        private static int Add(int a, int b)
+        {
+            return a + b;
         }
 
         private static void UseLambdaToFindTeenageStudnets()
@@ -45,7 +110,7 @@ namespace LinqExercise
 
             List<Student> students = GetSomeStudents();
 
-            List<Student> filteredStudents = StudentExtensions.Where(students, 
+            List<Student> filteredStudents = StudentExtensions.Filter(students, 
                 student => student.Age > 12 && student.Age < 20);
 
             Console.WriteLine(filteredStudents.DumpJson());
@@ -60,7 +125,7 @@ namespace LinqExercise
 
             List<Student> students = GetSomeStudents();
 
-            List<Student> filteredStudents = StudentExtensions.Where(students, IsTeenager);
+            List<Student> filteredStudents = StudentExtensions.Filter(students, IsTeenager);
 
             Console.WriteLine(filteredStudents.DumpJson());
         }
