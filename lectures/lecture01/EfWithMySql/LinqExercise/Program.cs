@@ -28,20 +28,65 @@ namespace LinqExercise
     {
         static void Main(string[] args)
         {
-            UseLoopToFindElements();
+            //UseLoopToFindElements();
 
-            UseFunctionToFindStudentByName();
-            UseFunctionToFindTeenageStudents();
+            //UseFunctionToFindStudentByName();
+            //UseFunctionToFindTeenageStudents();
 
-            UseDelegateToFindTeenageStudnets();
+            //UseDelegateToFindTeenageStudnets();
 
-            UseLambdaToFindTeenageStudnets();
+            //UseLambdaToFindTeenageStudnets();
 
-            UseExtensionToFindTeenageStudents();
+            //UseExtensionToFindTeenageStudents();
 
-            SaveFunctionInVariable();
+            //SaveFunctionInVariable();
 
-            LinqQuerySyntax();
+            //LinqQuerySyntax();
+
+            //UseProjection();
+
+            AggregateFunctions();
+        }
+
+        private static void AggregateFunctions()
+        {
+            var meString = string.Join(", ", GetSomeStudents().Where(x => IsTeenager(x)).Count().DumpJson(),
+            GetSomeStudents().Where(x => IsTeenager(x)).Min(x => x.Age).DumpJson(),
+            GetSomeStudents().Where(x => IsTeenager(x)).Max(x => x.Age).DumpJson());
+
+            Console.WriteLine(meString);
+
+            var json = GetSomeStudents().
+                //Where(x => IsTeenager(x)).
+                GroupBy(x => x.Age).
+                Select(x => new { Age = x.Key, Count = x.Count() }).
+                ToList().
+                DumpJson();
+
+            Console.WriteLine(json);
+
+            var aggregateExample =
+                from s in GetSomeStudents()
+                group s by s.Age into ss
+                select new { Age = ss.Key, Count = ss.Count() };
+            Console.WriteLine(aggregateExample.DumpJson());
+        }
+
+        private static void UseProjection()
+        {
+            //var json = GetSomeStudents().
+            //    Select(s => new { Id = s.StudentID, Age = s.Age }).
+            //    ToList().DumpJson();
+            //Console.WriteLine(json);
+
+            var json = GetSomeStudents().
+                Select(s => new Student
+                {
+                    StudentID = s.StudentID,
+                    Age = s.Age
+                }).
+                ToList().DumpJson();
+            Console.WriteLine(json);
         }
 
         private static void UseExtensionToFindTeenageStudents()
@@ -59,7 +104,7 @@ namespace LinqExercise
             //        student => student.StudentName == "John"
             //    );
 
-            List<Student> filteredStudents = students.Filter(student => student.Age > 12 && student.Age < 20).Filter(s => s.StudentName == "John");
+            List<Student> filteredStudents = students.Filter(s => s.Age > 12 && s.Age < 20).Filter(s => s.StudentName == "John");
 
             Console.WriteLine(filteredStudents.DumpJson());
         }
@@ -195,6 +240,7 @@ namespace LinqExercise
                 new Student() { StudentID = 5, StudentName = "Ron" , Age = 31 },
                 new Student() { StudentID = 6, StudentName = "Chris", Age = 17 },
                 new Student() { StudentID = 7, StudentName = "Rob", Age = 19  },
+                new Student() { StudentID = 8, StudentName = "John", Age = 21 },
             };
             return students;
         }
@@ -228,18 +274,11 @@ namespace LinqExercise
             Console.WriteLine("******* LinqQuerySyntax");
 
             // Student collection
-            IList<Student> studentList = new List<Student>()
-            {
-                new Student() { StudentID = 1, StudentName = "John", Age = 13 } ,
-                new Student() { StudentID = 2, StudentName = "Moin", Age = 21 } ,
-                new Student() { StudentID = 3, StudentName = "Bill", Age = 18 } ,
-                new Student() { StudentID = 4, StudentName = "Ram", Age = 20 } ,
-                new Student() { StudentID = 5, StudentName = "Ron", Age = 15 }
-            };
+            IList<Student> students = GetSomeStudents();
 
             // LINQ Query Syntax to find out teenager students
-            var teenagerStudent =
-                from s in studentList
+            IEnumerable<Student> teenagerStudent =
+                from s in students
                 where s.Age > 12 && s.Age < 20
                 select s;
 
