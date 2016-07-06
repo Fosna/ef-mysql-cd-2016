@@ -18,6 +18,10 @@ namespace WfTodoDb
         {
             InitializeComponent();
 
+            // Code review: Initialize db context one time.
+            // Enables entity tracking.
+            db = new TodoEntities();
+
             dgwShow.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             dgwShow.RowHeadersVisible = false;
             dgwShow.AllowUserToAddRows = false;
@@ -33,7 +37,8 @@ namespace WfTodoDb
 
         public void List()
         {
-            this.db = new TodoEntities();
+            // Code review. One db context per application is enough. No need to recreate it on every List() call.
+            //this.db = new TodoEntities();
             var todoList = this.db.TodoItems.ToList();
 
             dgwShow.Columns.Add("rbr", "R. br.");
@@ -117,9 +122,11 @@ namespace WfTodoDb
         private void btnRemoveAll_Click(object sender, EventArgs e)
         {
             hideTools();
-            var all = this.db.TodoItems.ToList();
+            // Code review: deactivate only todo items that aren't already deactivated.
+            //var all = this.db.TodoItems.ToList();
+            var activeTodoItems = this.db.TodoItems.Where(x => x.TimeDeactivated == null).ToList();
 
-            foreach (var todoItem in all)
+            foreach (var todoItem in activeTodoItems)
             {
                 todoItem.TimeDeactivated = DateTime.Now;
             }
@@ -255,20 +262,27 @@ namespace WfTodoDb
 
             this.db = new TodoEntities();
             var all = this.db.TodoItems.ToList();
+            // Code review: consider fetching only done and active todo items.
+            //var doneTodoItems = this.db.TodoItems.Where(x => x.TimeSetToDone.HasValue && x.TimeDeactivated == null).ToList();
 
             foreach (var todoItem in all)
             {
-                if (todoItem.TimeSetToDone != null)
+                // Code review: Bug fix. Already deactivated items shouldn't be deactivated again.
+                if (todoItem.TimeSetToDone != null && todoItem.TimeDeactivated == null)
                 {
                     todoItem.TimeDeactivated = DateTime.Now;
-                    this.db.SaveChanges();
+                    //this.db.SaveChanges();
                 }
-                else
-                {
-                    todoItem.TimeDeactivated = null;
-                    this.db.SaveChanges();
-                }
+                // Code review: Proposed bug fix.
+                //else
+                //{
+                //    todoItem.TimeDeactivated = null;
+                //    this.db.SaveChanges();
+                //}
             }
+            // Code review: First do all the changes in memory. Then do one update to the database. This approach is considered as better practice becaus it generaly has better performance.
+            this.db.SaveChanges();
+
             ListClear();
             List();
             txtDescShow.Text = "";
@@ -282,13 +296,24 @@ namespace WfTodoDb
 
         private void WriteHelp()
         {
-            // Read each line of the file into a string array. Each element of the array is one line of the file.
-            string[] lines = System.IO.File.ReadAllLines(@"C:\Users\Antonija\Documents\Visual Studio 2015\Projects\EfWithMySql\WfTodo\bin\Debug\help.txt");
+            // Code review: Try to find method that is better fit. Always check if file exists.
+            //// Read each line of the file into a string array. Each element of the array is one line of the file.
+            //string[] lines = System.IO.File.ReadAllLines(@"help.txt");
 
-            // Display the file contents by using a foreach loop.
-            foreach (string line in lines)
+            //// Display the file contents by using a foreach loop.
+            //foreach (string line in lines)
+            //{
+            //    txtHelp.Text += line + System.Environment.NewLine;
+            //}
+
+            var helpPath = "help.txt";
+            if (System.IO.File.Exists(helpPath))
             {
-                txtHelp.Text += line + System.Environment.NewLine;
+                txtHelp.Text = System.IO.File.ReadAllText(helpPath);
+            }
+            else
+            {
+                MessageBox.Show("Help file not found!");
             }
         }
 
