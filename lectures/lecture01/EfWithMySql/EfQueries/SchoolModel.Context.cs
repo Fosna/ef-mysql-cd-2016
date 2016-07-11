@@ -25,10 +25,11 @@ namespace EfQueries
             throw new UnintentionalCodeFirstException();
         }
     
-        public virtual DbSet<course> course { get; set; }
         public virtual DbSet<standard> standard { get; set; }
-        public virtual DbSet<student> student { get; set; }
         public virtual DbSet<studentaddress> studentaddress { get; set; }
         public virtual DbSet<teacher> teacher { get; set; }
+        public virtual DbSet<course> course { get; set; }
+        public virtual DbSet<student> student { get; set; }
+        public virtual DbSet<studentcourse> studentcourse { get; set; }
     }
 }

@@ -85,10 +85,15 @@
     <Compile Include="standard.cs">
       <DependentUpon>SchoolModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="TeacherPartial.cs" />
+    <Compile Include="StandardPartial.cs" />
     <Compile Include="student.cs">
       <DependentUpon>SchoolModel.tt</DependentUpon>
     </Compile>
     <Compile Include="studentaddress.cs">
+      <DependentUpon>SchoolModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="studentcourse.cs">
       <DependentUpon>SchoolModel.tt</DependentUpon>
     </Compile>
     <Compile Include="teacher.cs">
@@ -118,10 +123,17 @@
       <LastGenOutput>SchoolModel.cs</LastGenOutput>
     </Content>
     <Content Include="SqlScripts\01_SchoolDbCrinsert.sql" />
+    <Content Include="SqlScripts\03_StudentGrade.sql" />
     <Content Include="SqlScripts\02_EfFix.sql" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\SweetStuff\SweetStuff.csproj">
+      <Project>{1e712acc-f52d-4060-897f-bcfa50ee9235}</Project>
+      <Name>SweetStuff</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

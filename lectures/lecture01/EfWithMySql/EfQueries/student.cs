@@ -17,7 +17,7 @@ namespace EfQueries
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public student()
         {
-            this.course = new HashSet<course>();
+            this.studentcourse = new HashSet<studentcourse>();
         }
     
         public int StudentID { get; set; }
@@ -28,6 +28,6 @@ namespace EfQueries
         public virtual standard standard { get; set; }
         public virtual studentaddress studentaddress { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<course> course { get; set; }
+        public virtual ICollection<studentcourse> studentcourse { get; set; }
     }
 }

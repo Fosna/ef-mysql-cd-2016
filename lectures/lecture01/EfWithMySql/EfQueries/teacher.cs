@@ -24,8 +24,8 @@ namespace EfQueries
         public string TeacherName { get; set; }
         public Nullable<int> StandardId { get; set; }
     
+        public virtual standard standard { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<course> course { get; set; }
-        public virtual standard standard { get; set; }
     }
 }
